@@ -24,11 +24,11 @@
         </activity>
         <activity
             android:name=".Activity.LoginActivity"
-            android:label="Login"
+            android:label="Đăng nhập"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Activity.LoadLesson"
-            android:label="Lession"
+            android:label="Bài học"
             android:theme="@style/themelession" />
         <activity
             android:name=".MainActivity"

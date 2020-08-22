@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
+    android:id="@+id/cv_layout"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp">
+    android:layout_margin="5dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,6 +17,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"
             android:layout_centerVertical="true"
+            android:tint="@color/white"
             android:src="@drawable/img_right_arrow"/>
 
         <TextView
@@ -25,7 +28,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_margin="8dp"
-            android:textColor="#1a1a1a"
+            android:textColor="#ffffff"
             android:layout_toLeftOf="@id/img"
             android:layout_alignParentLeft="true"/>
 
@@ -38,6 +41,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
             android:text="sdsd"
+            android:textColor="#ffffff"
             android:textSize="15dp"
             android:layout_toLeftOf="@id/img"
             android:layout_alignParentLeft="true"

@@ -16,7 +16,7 @@
     <color name="red_active">#f44336</color>
     <color name="red_inactive">#e57373</color>
     <color name="blue_active">#03a9f4</color>
-    <color name="blue_inactive">#64b5f6</color>
+    <color name="gray_inactive">#8C8C8C</color>
     <color name="blue_grey_active">#607d8b</color>
     <color name="blue_grey_inactive">#90a4ae</color>
     <color name="green_active">#4caf50</color>

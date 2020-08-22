@@ -37,10 +37,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_active="true"
-                app:bt_colorActive="@color/red_active"
-                app:bt_colorInactive="@color/red_inactive"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
                 app:bt_icon="@drawable/ic_home"
-                app:bt_shape="@drawable/transition_background_drawable_home"
+                app:bt_shape="@drawable/transition_background_drawable_search"
                 app:bt_title="Câu"
                 app:bt_titleSize="16sp" />
 
@@ -48,9 +48,8 @@
                 android:id="@+id/l_item_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_badgeBackgroundColor="@color/green_active"
-                app:bt_colorActive="@color/blue_active"
-                app:bt_colorInactive="@color/blue_inactive"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
                 app:bt_icon="@drawable/ic_search"
                 app:bt_shape="@drawable/transition_background_drawable_search"
                 app:bt_title="Từ"
@@ -60,10 +59,10 @@
                 android:id="@+id/l_item_profile_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_colorActive="@color/blue_grey_active"
-                app:bt_colorInactive="@color/blue_grey_inactive"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
                 app:bt_icon="@drawable/ic_like"
-                app:bt_shape="@drawable/transition_background_drawable_like"
+                app:bt_shape="@drawable/transition_background_drawable_search"
                 app:bt_title="Bài học"
                 app:bt_titleSize="16sp" />
 
@@ -71,10 +70,10 @@
                 android:id="@+id/l_item_notification"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:bt_colorActive="@color/green_active"
-                app:bt_colorInactive="@color/green_inactive"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
                 app:bt_icon="@drawable/ic_playlist"
-                app:bt_shape="@drawable/transition_background_drawable_list"
+                app:bt_shape="@drawable/transition_background_drawable_search"
                 app:bt_title="Ôn tập"
                 app:bt_titleSize="16sp" />
 

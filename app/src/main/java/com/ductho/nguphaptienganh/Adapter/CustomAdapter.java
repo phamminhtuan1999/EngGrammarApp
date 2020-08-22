@@ -2,6 +2,9 @@ package com.ductho.nguphaptienganh.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +28,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, des;
-
+        CardView cvLayout;
         public MyViewHolder(View view) {
             super(view);
+
             title = (TextView) view.findViewById(R.id.txt_title);
             des = (TextView) view.findViewById(R.id.txt_des);
+            cvLayout = view.findViewById(R.id.cv_layout);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,6 +81,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         BaiHoc bh = arrayList.get(position);
         holder.title.setText(bh.getTitle());
         holder.des.setText(bh.getDes());
+        int colorRes = 0;
+        switch (position%2){
+            case 0:
+                colorRes = R.color.colorPrimary;
+                break;
+            case 1:
+                colorRes = R.color.blue_active;
+                break;
+        }
+        holder.cvLayout.setBackgroundColor(ContextCompat.getColor(context, colorRes));
     }
 
     @Override

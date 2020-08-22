@@ -3,6 +3,9 @@ package com.ductho.nguphaptienganh.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -32,11 +35,13 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView ten;
         ImageView img;
+        CardView cvMain;
 
         public MyViewHolder(View view) {
             super(view);
             ten = view.findViewById(R.id.txt_item_main);
             img = view.findViewById(R.id.img_item_main);
+            cvMain = view.findViewById(R.id.cv_main);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -78,6 +83,17 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.MyViewHolder> 
 
         holder.ten.setText(arrayList.get(position).getName());
         Glide.with(context).load(arrayList.get(position).getImg()).override(width, (int) (width - truPx)).into(holder.img);
+        int colorRes = 0;
+        switch (position%2){
+            case 0:
+                colorRes = R.color.colorPrimary;
+                break;
+            case 1:
+                colorRes = R.color.blue_active;
+                break;
+        }
+        holder.ten.setBackgroundColor(ContextCompat.getColor(context, colorRes));
+
     }
 
     @Override

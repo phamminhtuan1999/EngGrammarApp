@@ -2,6 +2,7 @@ package com.ductho.nguphaptienganh.Frm;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,7 +42,9 @@ public class FrmLession extends Fragment {
         new DanhMucLession(arrayList);
         arrayListCopy.addAll(arrayList);
         adapter = new AdapterMain(arrayList, getContext());
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
+        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rv.setLayoutManager(gridLayoutManager);
         rv.setAdapter(adapter);
         return view;
 

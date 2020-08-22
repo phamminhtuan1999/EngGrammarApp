@@ -76,14 +76,14 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void onBackPressed()
     {
-        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
-                .setMessage("Are you sure you want to exit?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Thoát ứng dụng")
+                .setMessage("Bạn chắc chắn muốn thoát ứng dụng?")
+                .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         System.exit(0);
                     }
-                }).setNegativeButton("No", null).show();
+                }).setNegativeButton("Không", null).show();
     }
 }
