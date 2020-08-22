@@ -52,10 +52,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
                         cursor.moveToFirst();
-
+                        String name = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME));
                         Toast.makeText(LoginActivity.this, "Đăng nhập thành công!",
                                 Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("name",name);
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Invalid username or password!",

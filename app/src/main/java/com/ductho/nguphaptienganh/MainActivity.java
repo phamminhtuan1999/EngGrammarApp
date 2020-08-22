@@ -1,6 +1,7 @@
 package com.ductho.nguphaptienganh;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.ductho.nguphaptienganh.Ads.AdBanner;
 import com.ductho.nguphaptienganh.Ads.AdFull;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity
     NavigationView navigationView;
     LinearLayout menuCau, menuTu, menuChiaSe, menuDanhGia;
     AdView adView;
+    TextView tvUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,9 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         navigationView = findViewById(R.id.nav_view);
+        tvUsername = navigationView.findViewById(R.id.tv_username);
+        Intent intent = getIntent();
+        tvUsername.setText("Xin chào " + intent.getStringExtra("name"));
         //navigationView.setNavigationItemSelectedListener(this);
         List<Fragment> fragList = new ArrayList<>();
         bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
