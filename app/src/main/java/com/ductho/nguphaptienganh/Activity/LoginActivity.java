@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
+                        System.exit(0);
                     }
                 }).setNegativeButton("No", null).show();
     }
