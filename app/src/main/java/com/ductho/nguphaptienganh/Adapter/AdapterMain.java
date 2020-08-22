@@ -46,7 +46,7 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.MyViewHolder> 
                     i.putExtra("id", arrayList.get(getPosition()).getId());
                     context.startActivity(i);
                     //context.overridePendingTransition(R.anim.slide_left, R.anim.slide_out_right);
-                    new AdFull(context);
+//                    new AdFull(context);
                 }
             });
         }

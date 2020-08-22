@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (cursor.getCount() > 0) {
                         cursor.moveToFirst();
 
-                        Toast.makeText(LoginActivity.this, "Logged In succesfully!",
+                        Toast.makeText(LoginActivity.this, "Đăng nhập thành công!",
                                 Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);

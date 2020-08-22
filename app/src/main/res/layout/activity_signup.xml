@@ -30,48 +30,91 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="15sp"
         android:layout_marginTop="0sp"
         android:orientation="vertical">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="999dp"
+            app:boxCornerRadiusBottomStart="999dp"
+            app:boxCornerRadiusTopEnd="999dp"
+            app:boxCornerRadiusTopStart="999dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:layout_marginTop="25sp"
-            android:background="@drawable/etstyle"
             android:hint="Name"
+            android:fontFamily="@font/utm_avo"
             android:inputType="text"
             android:maxLines="1"
             android:paddingLeft="8sp"
             android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="999dp"
+            app:boxCornerRadiusBottomStart="999dp"
+            app:boxCornerRadiusTopEnd="999dp"
+            app:boxCornerRadiusTopStart="999dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/user"
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/etstyle"
             android:hint="Username"
             android:inputType="text"
+            android:fontFamily="@font/utm_avo"
             android:maxLines="1"
             android:paddingLeft="8sp"
             android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="999dp"
+            app:boxCornerRadiusBottomStart="999dp"
+            app:boxCornerRadiusTopEnd="999dp"
+            app:boxCornerRadiusTopStart="999dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:layout_marginTop="25sp"
-            android:background="@drawable/etstyle"
             android:hint="Password"
             android:inputType="textPassword"
+            android:fontFamily="@font/utm_avo"
             android:maxLines="1"
             android:paddingLeft="8sp"
             android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="999dp"
+            app:boxCornerRadiusBottomStart="999dp"
+            app:boxCornerRadiusTopEnd="999dp"
+            app:boxCornerRadiusTopStart="999dp">
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/cnfrmpassword"
             android:layout_width="match_parent"
             android:layout_height="50sp"
@@ -79,14 +122,20 @@
             android:background="@drawable/etstyle"
             android:hint="Confirm Password"
             android:inputType="textPassword"
+            android:fontFamily="@font/utm_avo"
             android:maxLines="1"
             android:paddingLeft="8dp"
             android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/rshowPass"
             android:paddingLeft="8sp"
             android:text="Show Password"
+            android:textColor="#7E7E7E"
+            android:layout_marginStart="48dp"
+            android:fontFamily="@font/utm_avo"
+            android:includeFontPadding="false"
             android:textSize="15sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -96,11 +145,17 @@
             android:id="@+id/signin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
             android:background="@drawable/button_stroke"
             android:onClick="signinBtn"
             android:clickable="true"
-            android:text="Register"
+            android:text="Đăng ký"
+            android:textAllCaps="false"
+            android:textSize="19sp"
+            android:fontFamily="@font/utm_avo"
+            android:includeFontPadding="false"
             android:textColor="#fff" />
 
     </LinearLayout>

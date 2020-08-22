@@ -47,8 +47,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                         Intent i = new Intent(context, NoiDungActivity.class);
                         i.putExtra("id",id);
                         i.putExtra("title", title);
-                        CountAds countAds = new CountAds(context.getApplicationContext());
-                        countAds.count();
+//                        CountAds countAds = new CountAds(context.getApplicationContext());
+//                        countAds.count();
                         context.startActivity(i);
                     }
                 }

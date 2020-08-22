@@ -1,7 +1,10 @@
 package com.ductho.nguphaptienganh;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import android.view.View;
@@ -19,15 +22,21 @@ import com.ductho.nguphaptienganh.Ads.AdFull;
 import com.ductho.nguphaptienganh.Ads.Common;
 import com.ductho.nguphaptienganh.Ads.CountAds;
 import com.ductho.nguphaptienganh.Frm.PagerAdapter;
+import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.gms.ads.AdView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     ViewPager pager;
     TabLayout tabLayout;
+    BubbleNavigationLinearView bubbleNavigationLinearView;
     DrawerLayout drawer;
     NavigationView navigationView;
     LinearLayout menuCau, menuTu, menuChiaSe, menuDanhGia;
@@ -40,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Common.interstitialAd = new AdFull(getApplicationContext()).getInterstitialAd();
+//        Common.interstitialAd = new AdFull(getApplicationContext()).getInterstitialAd();
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -50,15 +59,38 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         //navigationView.setNavigationItemSelectedListener(this);
-
+        List<Fragment> fragList = new ArrayList<>();
+        bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
+        bubbleNavigationLinearView.setTypeface(ResourcesCompat.getFont(this, R.font.utm_bryantlg));
         pager = (ViewPager) findViewById(R.id.view_pager);
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+//        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         FragmentManager manager = getSupportFragmentManager();
         PagerAdapter adapter = new PagerAdapter(manager);
         pager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(pager);
-        pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.setTabsFromPagerAdapter(adapter);
+//        tabLayout.setupWithViewPager(pager);
+        pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                bubbleNavigationLinearView.setCurrentActiveItem(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+            @Override
+            public void onNavigationChanged(View view, int position) {
+                pager.setCurrentItem(position,true);
+            }
+        });
+//        tabLayout.setTabsFromPagerAdapter(adapter);
 
         menuCau = findViewById(R.id.menu_cau);
         menuTu = findViewById(R.id.menu_tu);
@@ -71,7 +103,7 @@ public class MainActivity extends AppCompatActivity
 
 //        adView = findViewById(R.id.ad_main);
 //        new AdBanner(adView);
-        new CountAds(this).reset();
+//        new CountAds(this).reset();
     }
 
     @Override

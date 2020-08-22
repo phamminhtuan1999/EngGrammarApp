@@ -64,7 +64,7 @@ public class LoadLesson extends AppCompatActivity {
 
     private void setControl() {
         rv = findViewById(R.id.rv_tab);
-        adView = findViewById(R.id.ad_banner_lession);
+//        adView = findViewById(R.id.ad_banner_lession);
     }
 
 
@@ -92,7 +92,7 @@ public class LoadLesson extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
-        new AdFull(this);
+//        new AdFull(this);
         super.onBackPressed();
     }
 

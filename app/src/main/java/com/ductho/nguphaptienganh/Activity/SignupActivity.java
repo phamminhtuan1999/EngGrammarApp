@@ -3,6 +3,7 @@ package com.ductho.nguphaptienganh.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -17,9 +18,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ductho.nguphaptienganh.DBHelper;
 import com.ductho.nguphaptienganh.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class SignupActivity extends AppCompatActivity {
-    EditText name, user1, pass, cnfrmpass;
+    TextInputEditText name, user1, pass, cnfrmpass;
     Button signin;
     ImageView rback;
     Cursor cursor;
@@ -32,12 +34,16 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
         dbHelper = new DBHelper(this);
 
-        name = (EditText) findViewById(R.id.name);
-        pass = (EditText) findViewById(R.id.password);
-        cnfrmpass = (EditText) findViewById(R.id.cnfrmpassword);
-        user1 = (EditText) findViewById(R.id.user);
+        name = (TextInputEditText) findViewById(R.id.name);
+        pass = (TextInputEditText) findViewById(R.id.password);
+        cnfrmpass = (TextInputEditText) findViewById(R.id.cnfrmpassword);
+        user1 = (TextInputEditText) findViewById(R.id.user);
         rshow = (CheckBox) findViewById(R.id.rshowPass);
         signin = (Button) findViewById(R.id.signin);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            pass.setTypeface(getResources().getFont(R.font.utm_avo_regular));
+            cnfrmpass.setTypeface(getResources().getFont(R.font.utm_avo_regular));
+        }
 
         showPass();
 

@@ -1,7 +1,7 @@
 <resources>
 <color name="colorPrimary">#377ac2</color>
 <color name="colorPrimaryDark">#1f508c</color>
-<color name="colorAccent">#ce900c</color>
+<color name="colorAccent">#4960fb</color>
 <color name="color_edtUser">#F5F5F5</color>
 
 <color name="iconColorPressed">#FFAEC9</color>
@@ -12,4 +12,21 @@
 <color name="graylight">#D3D3D3</color>
 <color name="main">#2c0fbc</color>
 <color name="pastel">#4960fb</color>
+<color name="white">#ffffff</color>
+    <color name="red_active">#f44336</color>
+    <color name="red_inactive">#e57373</color>
+    <color name="blue_active">#03a9f4</color>
+    <color name="blue_inactive">#64b5f6</color>
+    <color name="blue_grey_active">#607d8b</color>
+    <color name="blue_grey_inactive">#90a4ae</color>
+    <color name="green_active">#4caf50</color>
+    <color name="green_inactive">#81c784</color>
+    <color name="red_bg_light">#ffebee</color>
+    <color name="blue_grey_bg_light">#eceff1</color>
+    <color name="green_bg_light">#e8f5e9</color>
+    <color name="blue_bg_light">#e3f2fd</color>
+    <color name="selected_dot">#2D9CDB</color>
+    <color name="idle_dot">#662D9CDB</color>
+    <color name="ob_header">#4A4A4A</color>
+    <color name="ob_desc">#4A4A4A</color>
 </resources>
