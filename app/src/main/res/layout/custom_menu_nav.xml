@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -18,20 +20,21 @@
             android:background="#FFF">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/img_book"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Câu"
-                android:textColor="#fa2424"
-                android:textSize="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/utm_avo"
+                android:text="Câu"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginLeft="10dp"/>
+                android:textColor="@color/pastel"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,20 +45,21 @@
             android:background="#FFF">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/img_book"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Từ"
-                android:textColor="#fa2424"
-                android:textSize="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/utm_avo"
+                android:text="Từ"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginLeft="10dp"/>
+                android:textColor="@color/pastel"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,20 +70,22 @@
             android:background="#FFF">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/img_share"/>
+                android:src="@drawable/img_share"
+                android:tint="@color/pastel" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chia Sẻ"
-                android:textColor="#fa2424"
-                android:textSize="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/utm_avo"
+                android:text="Chia Sẻ"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginLeft="10dp"/>
+                android:textColor="@color/pastel"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,22 +96,47 @@
             android:background="#FFF">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="8dp"
                 android:src="@drawable/img_star"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đánh Giá"
-                android:textColor="#fa2424"
-                android:textSize="20dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/utm_avo"
+                android:text="Đánh Giá"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginLeft="10dp"/>
+                android:textColor="@color/pastel"
+                android:textSize="20sp" />
         </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:background="@color/white">
 
+            <Button
+                android:id="@+id/btn_sign_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/button_stroke"
+                android:fontFamily="@font/utm_avo"
+                android:text="Đăng xuất"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:includeFontPadding="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
+
 
 </ScrollView>

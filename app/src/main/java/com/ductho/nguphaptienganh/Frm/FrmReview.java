@@ -42,8 +42,8 @@ public class FrmReview extends Fragment {
         new DanhMucReview(arrayList);
         arrayListCopy.addAll(arrayList);
         adapter = new AdapterMain(arrayList, getContext());
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
-        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+//        gridLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rv.setLayoutManager(gridLayoutManager);
         rv.setAdapter(adapter);
         return view;

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    >
+    android:layout_margin="7dp"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,40 +17,39 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
             android:layout_centerVertical="true"
-            android:tint="@color/white"
-            android:src="@drawable/img_right_arrow"/>
+            android:layout_marginRight="5dp"
+            android:src="@drawable/img_right_arrow"
+            android:tint="@color/white" />
 
         <TextView
             android:id="@+id/txt_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ád"
-            android:textSize="18dp"
-            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
             android:layout_margin="8dp"
-            android:textColor="#ffffff"
             android:layout_toLeftOf="@id/img"
-            android:layout_alignParentLeft="true"/>
+            android:text="1. Các câu trong thì tiếng Anh"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_title"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:text="sdsd"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
             android:layout_toLeftOf="@id/img"
-            android:layout_alignParentLeft="true"
+            android:ellipsize="end"
             android:maxLines="1"
             android:singleLine="true"
-            android:ellipsize="end" />
-
+            android:text="Hiện tại đơn, ..."
+            android:textColor="#ffffff"
+            android:textSize="15dp" />
 
 
     </RelativeLayout>

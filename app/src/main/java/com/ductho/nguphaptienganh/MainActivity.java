@@ -10,6 +10,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
+
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -18,9 +19,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ductho.nguphaptienganh.Activity.LoginActivity;
 import com.ductho.nguphaptienganh.Ads.AdBanner;
 import com.ductho.nguphaptienganh.Ads.AdFull;
 import com.ductho.nguphaptienganh.Ads.Common;
@@ -39,13 +42,14 @@ public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
 
     ViewPager pager;
-    TabLayout tabLayout;
+    //    TabLayout tabLayout;
     BubbleNavigationLinearView bubbleNavigationLinearView;
     DrawerLayout drawer;
     NavigationView navigationView;
     LinearLayout menuCau, menuTu, menuChiaSe, menuDanhGia;
-    AdView adView;
+    //    AdView adView;
     TextView tvUsername;
+    Button btnSignOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,21 @@ public class MainActivity extends AppCompatActivity
         tvUsername = navigationView.findViewById(R.id.tv_username);
         Intent intent = getIntent();
         tvUsername.setText("Xin chào " + intent.getStringExtra("name"));
+        btnSignOut = navigationView.findViewById(R.id.btn_sign_out);
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(MainActivity.this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Đăng xuất")
+                        .setMessage("Bạn chắc chắn muốn đăng xuất?")
+                        .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                            }
+                        }).setNegativeButton("Không", null).show();
+            }
+        });
         //navigationView.setNavigationItemSelectedListener(this);
         List<Fragment> fragList = new ArrayList<>();
         bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
@@ -95,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
             public void onNavigationChanged(View view, int position) {
-                pager.setCurrentItem(position,true);
+                pager.setCurrentItem(position, true);
             }
         });
 //        tabLayout.setTabsFromPagerAdapter(adapter);
@@ -134,7 +153,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.menu_cau: {
                 drawer.closeDrawers();
                 pager.setCurrentItem(0);

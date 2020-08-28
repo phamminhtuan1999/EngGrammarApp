@@ -90,7 +90,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 colorRes = R.color.blue_active;
                 break;
         }
-        holder.cvLayout.setBackgroundColor(ContextCompat.getColor(context, colorRes));
+        holder.cvLayout.setCardBackgroundColor(ContextCompat.getColor(context, colorRes));
     }
 
     @Override

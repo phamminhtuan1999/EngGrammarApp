@@ -22,7 +22,7 @@ public class LoadLesson extends AppCompatActivity {
     ArrayList<ItemLession> arrayList;
     AdapterTab adapterTab;
     RecyclerView rv;
-    AdView adView;
+//    AdView adView;
     int id;
 
 

@@ -2,6 +2,7 @@ package com.ductho.nguphaptienganh.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
@@ -22,7 +23,9 @@ public class NoiDungActivity extends AppCompatActivity {
 
         id = getIntent().getStringExtra("id");
         title = getIntent().getStringExtra("title");
-        getSupportActionBar().setTitle(title);
+//        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + title + "</font>")));
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
         wv = findViewById(R.id.wv);
         new LoadNoiDung(id, wv);
 //        AdView adView = findViewById(R.id.ad_nd);

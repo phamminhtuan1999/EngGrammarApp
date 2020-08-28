@@ -26,13 +26,16 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 3:
                 frag = new FrmReview();
                 break;
+            case 4:
+                frag = new FrmNote();
+                break;
         }
         return frag;
     }
 
     @Override
     public int getCount() {
-        return 4;
+        return 5;
     }
 
     @Override
@@ -50,6 +53,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 break;
             case 3:
                 title = "Review";
+                break;
+            case 4:
+                title = "Note";
                 break;
         }
 

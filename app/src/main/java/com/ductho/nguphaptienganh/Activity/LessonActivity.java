@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Html;
 import android.view.MenuItem;
 
 import com.ductho.nguphaptienganh.Adapter.CustomAdapter;
@@ -30,7 +32,9 @@ public class LessonActivity extends AppCompatActivity {
 
         id = getIntent().getStringExtra("id");
         title = getIntent().getStringExtra("title");
-        getSupportActionBar().setTitle(title);
+//        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + title + "</font>")));
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
 
         rv = findViewById(R.id.rv_lession);
         arrayList = new ArrayList<>();
