@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_home"
+            android:id="@+id/l_item_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_active="true"
@@ -62,7 +62,7 @@
             app:bt_titleSize="16sp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_search"
+            android:id="@+id/l_item_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_colorActive="@color/colorPrimary"
@@ -73,7 +73,7 @@
             app:bt_titleSize="16sp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_profile_list"
+            android:id="@+id/l_item_lesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_colorActive="@color/colorPrimary"
@@ -84,7 +84,7 @@
             app:bt_titleSize="16sp" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_notification"
+            android:id="@+id/l_item_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bt_colorActive="@color/colorPrimary"

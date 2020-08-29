@@ -2,12 +2,15 @@ package com.ductho.nguphaptienganh.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,11 +20,15 @@ import com.ductho.nguphaptienganh.Model.Note;
 import com.ductho.nguphaptienganh.OnNoteClickListener;
 import com.ductho.nguphaptienganh.R;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static com.ductho.nguphaptienganh.Activity.AddActivity.*;
 
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder> {
     private Context mContext;
 //    private DBHelper mNoteDBHelper;
@@ -50,7 +57,7 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder
 
 
 
-        holder.tvID.setText(String.valueOf(ID));
+        holder.tvID.setText(getCurrentDate());
         holder.tvTitle.setText(title);
         holder.tvDescription.setText(description);
         holder.cvNote.setOnClickListener(new OnNoteClickListener(ID, title, description) {
@@ -85,4 +92,10 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder
         }
     }
 
+    public static String getCurrentDate() {
+        Date c = Calendar.getInstance().getTime();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        String formattedDate = df.format(c);
+        return formattedDate;
+    }
 }

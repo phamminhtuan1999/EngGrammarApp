@@ -1,9 +1,12 @@
 package com.ductho.nguphaptienganh.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
@@ -59,6 +62,10 @@ public class LoadLesson extends AppCompatActivity {
 
         // Hiển thị nút back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if (AppCompatDelegate.getDefaultNightMode() ==
+                AppCompatDelegate.MODE_NIGHT_YES) {
+            toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.dm_background));
+        }
     }
 
 

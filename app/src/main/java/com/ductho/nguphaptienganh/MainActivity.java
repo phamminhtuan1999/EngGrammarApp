@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     //    AdView adView;
     TextView tvUsername;
     Button btnSignOut;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity
 
         tvUsername = navigationView.findViewById(R.id.tv_username);
         Intent intent = getIntent();
-        tvUsername.setText("Xin chào " + intent.getStringExtra("name"));
+        name = intent.getStringExtra("name");
+        tvUsername.setText("Xin chào " + name);
 
         btnSignOut = navigationView.findViewById(R.id.btn_sign_out);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
@@ -164,6 +166,7 @@ public class MainActivity extends AppCompatActivity
     private void activate() {
         Intent intent = new Intent(getApplicationContext(),
                 MainActivity.class);
+        intent.putExtra("name", name);
         startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in,
                 android.R.anim.fade_out);
