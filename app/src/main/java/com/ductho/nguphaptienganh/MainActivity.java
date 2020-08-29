@@ -2,10 +2,11 @@ package com.ductho.nguphaptienganh;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -20,27 +21,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.ductho.nguphaptienganh.Activity.LoginActivity;
-import com.ductho.nguphaptienganh.Ads.AdBanner;
-import com.ductho.nguphaptienganh.Ads.AdFull;
-import com.ductho.nguphaptienganh.Ads.Common;
-import com.ductho.nguphaptienganh.Ads.CountAds;
 import com.ductho.nguphaptienganh.Frm.PagerAdapter;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
-import com.google.android.gms.ads.AdView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.annotation.InspectableProperty.ValueType.COLOR;
+
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
-
+    public static Switch switchDarkMode;
     ViewPager pager;
     //    TabLayout tabLayout;
     BubbleNavigationLinearView bubbleNavigationLinearView;
@@ -55,8 +54,19 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        navigationView = findViewById(R.id.nav_view);
+        switchDarkMode = navigationView.findViewById(R.id.switch_dark_mode);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (AppCompatDelegate.getDefaultNightMode() ==
+                AppCompatDelegate.MODE_NIGHT_YES) {
+            setTheme(R.style.DarkMode);
+            toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.dm_background));
+            switchDarkMode.setChecked(true);
+        } else setTheme(R.style.LightMode);
+
+
+
 
 //        Common.interstitialAd = new AdFull(getApplicationContext()).getInterstitialAd();
 
@@ -66,10 +76,11 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = findViewById(R.id.nav_view);
+
         tvUsername = navigationView.findViewById(R.id.tv_username);
         Intent intent = getIntent();
         tvUsername.setText("Xin chào " + intent.getStringExtra("name"));
+
         btnSignOut = navigationView.findViewById(R.id.btn_sign_out);
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +96,23 @@ public class MainActivity extends AppCompatActivity
                         }).setNegativeButton("Không", null).show();
             }
         });
+
+        switchDarkMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (switchDarkMode.isChecked()) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate
+                            .MODE_NIGHT_YES);
+                    activate();
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate
+                            .MODE_NIGHT_NO);
+                    activate();
+                }
+
+            }
+        });
+
         //navigationView.setNavigationItemSelectedListener(this);
         List<Fragment> fragList = new ArrayList<>();
         bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
@@ -131,6 +159,15 @@ public class MainActivity extends AppCompatActivity
 //        adView = findViewById(R.id.ad_main);
 //        new AdBanner(adView);
 //        new CountAds(this).reset();
+    }
+
+    private void activate() {
+        Intent intent = new Intent(getApplicationContext(),
+                MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in,
+                android.R.anim.fade_out);
+        finish();
     }
 
     @Override

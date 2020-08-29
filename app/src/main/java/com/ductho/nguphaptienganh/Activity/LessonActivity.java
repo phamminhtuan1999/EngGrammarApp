@@ -1,9 +1,15 @@
 package com.ductho.nguphaptienganh.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import android.text.Html;
 import android.view.MenuItem;
@@ -35,6 +41,11 @@ public class LessonActivity extends AppCompatActivity {
 //        getSupportActionBar().setTitle(title);
         getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + title + "</font>")));
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        if (AppCompatDelegate.getDefaultNightMode() ==
+                AppCompatDelegate.MODE_NIGHT_YES) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources()
+                    .getColor(R.color.dm_background)));
+        }
 
         rv = findViewById(R.id.rv_lession);
         arrayList = new ArrayList<>();
@@ -50,7 +61,7 @@ public class LessonActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             onBackPressed();
         }
 

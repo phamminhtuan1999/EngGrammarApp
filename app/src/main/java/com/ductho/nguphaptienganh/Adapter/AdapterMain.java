@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.ductho.nguphaptienganh.Activity.LoadLesson;
 import com.ductho.nguphaptienganh.Ads.AdFull;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.ItemMain;
 import com.ductho.nguphaptienganh.R;
 
@@ -83,16 +84,18 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.MyViewHolder> 
 
         holder.ten.setText(arrayList.get(position).getName());
         Glide.with(context).load(arrayList.get(position).getImg()).override(width, (int) (width - truPx)).into(holder.img);
-        int colorRes = 0;
-        switch (position%2){
-            case 0:
-                colorRes = R.color.colorPrimary;
-                break;
-            case 1:
-                colorRes = R.color.blue_active;
-                break;
+        if (!MainActivity.switchDarkMode.isChecked()) {
+            int colorRes = 0;
+            switch (position % 2) {
+                case 0:
+                    colorRes = R.color.colorPrimary;
+                    break;
+                case 1:
+                    colorRes = R.color.blue_active;
+                    break;
+            }
+            holder.ten.setBackgroundColor(ContextCompat.getColor(context, colorRes));
         }
-        holder.ten.setBackgroundColor(ContextCompat.getColor(context, colorRes));
 
     }
 

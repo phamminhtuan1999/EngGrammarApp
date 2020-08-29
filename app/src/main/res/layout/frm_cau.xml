@@ -8,7 +8,8 @@
         android:id="@+id/rv_cau"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/custom_item_cau_tu">
+        tools:listitem="@layout/custom_item_cau_tu"
+        >
 
     </androidx.recyclerview.widget.RecyclerView>
 

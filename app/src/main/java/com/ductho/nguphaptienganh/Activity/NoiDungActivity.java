@@ -1,6 +1,12 @@
 package com.ductho.nguphaptienganh.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
+
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.MenuItem;
@@ -15,6 +21,7 @@ public class NoiDungActivity extends AppCompatActivity {
 
     String id, title;
     WebView wv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,16 @@ public class NoiDungActivity extends AppCompatActivity {
         getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + title + "</font>")));
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
         wv = findViewById(R.id.wv);
+        if (AppCompatDelegate.getDefaultNightMode() ==
+                AppCompatDelegate.MODE_NIGHT_YES) {
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources()
+                    .getColor(R.color.dm_background)));
+            if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
+                WebSettingsCompat.setForceDark(wv.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+            }
+
+        }
+
         new LoadNoiDung(id, wv);
 //        AdView adView = findViewById(R.id.ad_nd);
 //        new AdBanner(adView);
@@ -36,7 +53,7 @@ public class NoiDungActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             onBackPressed();
         }
 

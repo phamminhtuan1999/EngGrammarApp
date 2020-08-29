@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#dedede">
+        android:background="#dedede"
+        android:orientation="vertical">
 
-        <include layout="@layout/nav_header_main"/>
+        <include layout="@layout/nav_header_main" />
 
         <LinearLayout
             android:id="@+id/menu_cau"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF">
+            android:background="?android:colorBackground">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/img_book"/>
+                android:src="@drawable/img_book" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -42,13 +42,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:background="#FFF">
+            android:background="?android:colorBackground">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/img_book"/>
+                android:src="@drawable/img_book" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:background="#FFF">
+            android:background="?android:colorBackground">
 
             <ImageView
                 android:layout_width="50dp"
@@ -88,18 +88,19 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
+
         <LinearLayout
             android:id="@+id/menu_danh_gia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:background="#FFF">
+            android:background="?android:colorBackground">
 
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="8dp"
-                android:src="@drawable/img_star"/>
+                android:src="@drawable/img_star" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,31 +113,74 @@
                 android:textColor="@color/pastel"
                 android:textSize="20sp" />
         </LinearLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="8dp"
-            android:background="@color/white">
+            android:layout_marginTop="1dp"
+            android:background="?android:colorBackground">
+
+            <ImageView
+                android:id="@+id/img_moon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/ic_moon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/utm_avo"
+                android:text="Dark Mode"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/pastel"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/img_moon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/switch_dark_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:colorBackground"
+            android:paddingBottom="8dp">
 
             <Button
                 android:id="@+id/btn_sign_out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:background="@drawable/button_stroke"
                 android:fontFamily="@font/utm_avo"
+                android:includeFontPadding="false"
+                android:padding="10dp"
                 android:text="Đăng xuất"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:includeFontPadding="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
-
 
 
 </ScrollView>

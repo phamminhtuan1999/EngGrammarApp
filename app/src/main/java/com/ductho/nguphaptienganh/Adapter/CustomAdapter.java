@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.ductho.nguphaptienganh.Activity.LessonActivity;
 import com.ductho.nguphaptienganh.Activity.NoiDungActivity;
 import com.ductho.nguphaptienganh.Ads.CountAds;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.BaiHoc;
 import com.ductho.nguphaptienganh.R;
 
@@ -81,16 +82,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         BaiHoc bh = arrayList.get(position);
         holder.title.setText(bh.getTitle());
         holder.des.setText(bh.getDes());
-        int colorRes = 0;
-        switch (position%2){
-            case 0:
-                colorRes = R.color.colorPrimary;
-                break;
-            case 1:
-                colorRes = R.color.blue_active;
-                break;
+        if (!MainActivity.switchDarkMode.isChecked()) {
+            int colorRes = 0;
+            switch (position % 2) {
+                case 0:
+                    colorRes = R.color.colorPrimary;
+                    break;
+                case 1:
+                    colorRes = R.color.blue_active;
+                    break;
+            }
+            holder.cvLayout.setCardBackgroundColor(ContextCompat.getColor(context, colorRes));
         }
-        holder.cvLayout.setCardBackgroundColor(ContextCompat.getColor(context, colorRes));
     }
 
     @Override

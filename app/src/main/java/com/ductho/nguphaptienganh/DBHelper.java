@@ -10,6 +10,9 @@ import android.util.Log;
 
 import com.ductho.nguphaptienganh.Model.Note;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.COLUMN_DESCRIPTION;
 import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.COLUMN_TITLE;
 import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.NOTE_TABLE;
@@ -173,5 +176,45 @@ public class DBHelper extends SQLiteOpenHelper {
             mReadableDB = getReadableDatabase();
         }
         return DatabaseUtils.queryNumEntries(mReadableDB, NOTE_TABLE);
+    }
+
+    public List<Note> getAllNotes(){
+        List<Note> notes = new ArrayList<>();
+        if (mReadableDB == null) {
+            mReadableDB = getReadableDatabase();
+        }
+        Cursor c = mReadableDB.rawQuery("SELECT * FROM " + NOTE_TABLE,null);
+        if(c.moveToFirst()){
+            do{
+                Note note = new Note();
+                note.setID(c.getInt(c.getColumnIndex(_ID)));
+                note.setTitle(c.getString(c.getColumnIndex(COLUMN_TITLE)));
+                note.setDescription(c.getString(c.getColumnIndex(COLUMN_DESCRIPTION)));
+                notes.add(note);
+            }
+            while (c.moveToNext());
+        }
+        c.close();
+        return notes;
+    }
+
+    public List<Note> getNote(String text){
+        List<Note> notes = new ArrayList<>();
+        if (mReadableDB == null) {
+            mReadableDB = getReadableDatabase();
+        }
+        Cursor c = mReadableDB.rawQuery("SELECT * FROM " + NOTE_TABLE + " WHERE " + COLUMN_TITLE + " LIKE ?",new String[]{text});
+        if(c.moveToFirst()){
+            do{
+                Note note = new Note();
+                note.setID(c.getInt(c.getColumnIndex(_ID)));
+                note.setTitle(c.getString(c.getColumnIndex(COLUMN_TITLE)));
+                note.setDescription(c.getString(c.getColumnIndex(COLUMN_DESCRIPTION)));
+                notes.add(note);
+            }
+            while (c.moveToNext());
+        }
+        c.close();
+        return notes;
     }
 }

@@ -11,21 +11,26 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ductho.nguphaptienganh.Activity.AddActivity;
 import com.ductho.nguphaptienganh.DBHelper;
 import com.ductho.nguphaptienganh.Model.Note;
 import com.ductho.nguphaptienganh.OnNoteClickListener;
 import com.ductho.nguphaptienganh.R;
 
-import static com.ductho.nguphaptienganh.Adapter.AddActivity.*;
+import java.util.List;
+
+import static com.ductho.nguphaptienganh.Activity.AddActivity.*;
 
 
 public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder> {
     private Context mContext;
-    private DBHelper mNoteDBHelper;
+//    private DBHelper mNoteDBHelper;
+    private List<Note> mNotes;
 
-    public AdapterNote(Context context, DBHelper productDBHelper) {
+    public AdapterNote(Context context, List<Note> notes) {
         mContext = context;
-        mNoteDBHelper = productDBHelper;
+        mNotes = notes;
+//        mNoteDBHelper = productDBHelper;
     }
 
     @NonNull
@@ -37,10 +42,13 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        Note currentNote = mNoteDBHelper.query(position);
+//        Note currentNote = mNoteDBHelper.query(position);
+        Note currentNote = mNotes.get(position);
         int ID = currentNote.getID();
         String title = currentNote.getTitle();
         final String description = currentNote.getDescription();
+
+
 
         holder.tvID.setText(String.valueOf(ID));
         holder.tvTitle.setText(title);
@@ -59,8 +67,10 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder
 
     @Override
     public int getItemCount() {
-        return (int) mNoteDBHelper.count();
+//        return (int) mNoteDBHelper.count();
+        return mNotes.size();
     }
+
 
     public class NoteViewHolder extends RecyclerView.ViewHolder {
         TextView tvID, tvTitle, tvDescription;
