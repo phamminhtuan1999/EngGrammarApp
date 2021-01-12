@@ -31,17 +31,20 @@
         <activity
             android:name=".Activity.LoadLesson"
             android:label="Bài học"
-            android:theme="@style/themelesson" />
+            android:theme="@style/themelesson"
+            />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/themelesson"></activity>
         <activity
             android:name=".Activity.NoiDungActivity"
-            app:theme="@style/themelesson"/>
+            app:theme="@style/themelesson"
+            />
         <activity
             android:name=".Activity.LessonActivity"
-            app:theme="@style/themelesson"/>
+            app:theme="@style/themelesson"
+            />
         <activity
             android:name=".Activity.SignupActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>

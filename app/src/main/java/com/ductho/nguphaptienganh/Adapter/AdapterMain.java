@@ -96,7 +96,9 @@ public class AdapterMain extends RecyclerView.Adapter<AdapterMain.MyViewHolder> 
             }
             holder.ten.setBackgroundColor(ContextCompat.getColor(context, colorRes));
         }
-
+        else{
+            holder.cvMain.setCardBackgroundColor(ContextCompat.getColor(context, R.color.dm_item_rv_background));
+        }
     }
 
     @Override

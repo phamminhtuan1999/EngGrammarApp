@@ -30,4 +30,5 @@
     <color name="ob_header">#4A4A4A</color>
     <color name="ob_desc">#4A4A4A</color>
     <color name="dm_background">#2e2e2e</color>
+    <color name="dm_item_rv_background">#424242</color>
 </resources>

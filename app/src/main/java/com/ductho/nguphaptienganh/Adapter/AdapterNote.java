@@ -12,10 +12,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ductho.nguphaptienganh.Activity.AddActivity;
 import com.ductho.nguphaptienganh.DBHelper;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.Note;
 import com.ductho.nguphaptienganh.OnNoteClickListener;
 import com.ductho.nguphaptienganh.R;
@@ -70,6 +72,21 @@ public class AdapterNote extends RecyclerView.Adapter<AdapterNote.NoteViewHolder
                 mContext.startActivity(intent);
             }
         });
+        if (!MainActivity.switchDarkMode.isChecked()) {
+            int colorRes = 0;
+            switch (position % 2) {
+                case 0:
+                    colorRes = R.color.colorPrimary;
+                    break;
+                case 1:
+                    colorRes = R.color.blue_active;
+                    break;
+            }
+            holder.cvNote.setCardBackgroundColor(ContextCompat.getColor(mContext, colorRes));
+        }
+        else{
+            holder.cvNote.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.dm_item_rv_background));
+        }
     }
 
     @Override

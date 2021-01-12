@@ -94,6 +94,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             }
             holder.cvLayout.setCardBackgroundColor(ContextCompat.getColor(context, colorRes));
         }
+        else{
+            holder.cvLayout.setCardBackgroundColor(ContextCompat.getColor(context, R.color.dm_item_rv_background));
+        }
     }
 
     @Override
