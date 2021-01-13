@@ -10,8 +10,10 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -28,9 +30,12 @@ import android.widget.TextView;
 
 import com.ductho.nguphaptienganh.Activity.LoginActivity;
 import com.ductho.nguphaptienganh.Frm.PagerAdapter;
+import com.ductho.nguphaptienganh.ViewModel.QuestionViewModel;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,11 +55,18 @@ public class MainActivity extends AppCompatActivity
     TextView tvUsername;
     Button btnSignOut;
     String name;
+    QuestionViewModel mQuestionViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
+        mQuestionViewModel.fetchQuestions(10);
+        mQuestionViewModel.getQuestions().observe(this,apiResponse -> {
+            Log.d("ABC",apiResponse.toString());
+        });
+
         navigationView = findViewById(R.id.nav_view);
         switchDarkMode = navigationView.findViewById(R.id.switch_dark_mode);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -79,9 +91,13 @@ public class MainActivity extends AppCompatActivity
 
 
         tvUsername = navigationView.findViewById(R.id.tv_username);
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
-        tvUsername.setText("Xin chào " + name);
+//        Intent intent = getIntent();
+//        name = intent.getStringExtra("name");
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user!=null){
+            tvUsername.setText("Xin chào " + user.getDisplayName());
+        }
+
 
         btnSignOut = navigationView.findViewById(R.id.btn_sign_out);
         btnSignOut.setOnClickListener(new View.OnClickListener() {

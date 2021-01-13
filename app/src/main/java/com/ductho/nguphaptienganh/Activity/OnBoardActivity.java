@@ -1,6 +1,7 @@
 package com.ductho.nguphaptienganh.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -29,6 +30,8 @@ public class OnBoardActivity extends AppCompatActivity {
     private ViewPager onboard_pager;
     private OnBoard_Adapter mAdapter;
     private Button btn_get_started;
+    SharedPreferences mSharedPreferences;
+    SharedPreferences.Editor mEditor;
 
     int previous_pos=0;
 
@@ -44,6 +47,11 @@ public class OnBoardActivity extends AppCompatActivity {
         btn_get_started = (Button) findViewById(R.id.btn_get_started);
         onboard_pager = (ViewPager) findViewById(R.id.pager_introduction);
         pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
+
+        mSharedPreferences = getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+        mEditor = mSharedPreferences.edit();
+        mEditor.putBoolean("isFirstTime",false);
+        mEditor.commit();
 
         loadData();
 
