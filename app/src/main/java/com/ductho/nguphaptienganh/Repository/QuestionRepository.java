@@ -4,15 +4,22 @@ import android.app.Application;
 
 import com.ductho.nguphaptienganh.API.ApiRequest;
 import com.ductho.nguphaptienganh.API.RetrofitInit;
+import com.ductho.nguphaptienganh.Database.QuestionDao;
+import com.ductho.nguphaptienganh.Database.QuestionDatabase;
 import com.ductho.nguphaptienganh.Model.ApiResponse;
+import com.ductho.nguphaptienganh.Model.Result;
+
+import java.util.List;
 
 import io.reactivex.rxjava3.core.Maybe;
 
 public class QuestionRepository {
     private ApiRequest mApiRequest;
     private static QuestionRepository mInstance;
+    private QuestionDao mQuestionDao;
 
     public QuestionRepository(Application application) {
+        mQuestionDao = QuestionDatabase.getInstance(application).getQuestionDao();
         mApiRequest = RetrofitInit.getInstance();
     }
 
@@ -26,4 +33,12 @@ public class QuestionRepository {
     public Maybe<ApiResponse> fetchQuestions(int i){
         return mApiRequest.fetchQuestions(i);
     }
+    public Maybe<List<Result>> fetchLocalQuestions(){
+        return mQuestionDao.getAllQuestions();
+    }
+
+    public Maybe<Long> insertQuestion(Result result){
+        return  mQuestionDao.insert(result);
+    }
+
 }
