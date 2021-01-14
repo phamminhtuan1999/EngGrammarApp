@@ -9,7 +9,9 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
-
+    <style name="RoundedCornersDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="dialogCornerRadius">8dp</item>
+    </style>
     <!-- Base application theme. -->
     <style name="themelesson" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->

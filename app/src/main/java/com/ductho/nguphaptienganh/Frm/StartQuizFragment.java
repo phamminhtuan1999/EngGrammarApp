@@ -24,10 +24,12 @@ public class StartQuizFragment extends Fragment {
     public final static int REQUEST_CODE_QUIZ = 1;
     public static final String SHARED_PREFS = "MyPref";
     public static final String KEY_HIGHSCORE = "keyHighscore";
-
-    int highscore;
+    static SharedPreferences prefs;
+    static int highscore;
     QuestionViewModel questionViewModel;
-    FragmentStartQuizBinding mBinding;
+    static FragmentStartQuizBinding mBinding;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +42,7 @@ public class StartQuizFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         loadHighscore();
         mBinding.buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,8 +62,7 @@ public class StartQuizFragment extends Fragment {
         .commit();
     }
 
-    private void loadHighscore() {
-        SharedPreferences prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+    public static void loadHighscore() {
         highscore = prefs.getInt(KEY_HIGHSCORE, 0);
         mBinding.textViewHighscore.setText("Highscore: " + highscore);
     }

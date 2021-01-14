@@ -1,5 +1,7 @@
 package com.ductho.nguphaptienganh.Frm;
 
+import android.app.AlertDialog;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,10 +16,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.Result;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.ViewModel.QuestionViewModel;
@@ -29,12 +34,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.ductho.nguphaptienganh.Frm.StartQuizFragment.KEY_HIGHSCORE;
+import static com.ductho.nguphaptienganh.Frm.StartQuizFragment.SHARED_PREFS;
+
 
 public class NewQuizFragment extends Fragment {
     private CountDownTimer mCountDownTimer;
     private long timeLeftInMillis;
     List<String> options;
     RadioButton selectedRb;
+    SharedPreferences prefs;
+    int highscore;
 
     public static final String EXTRA_SCORE = "extraScore";
     private static final long COUNTDOWN_IN_MILLIS = 30000;
@@ -176,7 +187,40 @@ public class NewQuizFragment extends Fragment {
     }
 
     private void finishQuiz() {
-        getActivity().getSupportFragmentManager().popBackStack();
+        popUpDialog();
+
+    }
+
+    private void popUpDialog() {
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        View promptView = layoutInflater.inflate(R.layout.show_score_dialog, null);
+        AlertDialog.Builder highScoreDialogBuilder =
+                new AlertDialog.Builder(getActivity(),R.style.RoundedCornersDialog);
+        highScoreDialogBuilder.setView(promptView);
+        AlertDialog highScoreDialog = highScoreDialogBuilder.show();
+        Button btnPlayAgain = promptView.findViewById(R.id.btn_dialog_yes);
+        Button btnCancel = promptView.findViewById(R.id.btn_dialog_no);
+        TextView tvScore = promptView.findViewById(R.id.tvScore);
+        tvScore.setText("Your score is: " + score);
+        btnPlayAgain.setOnClickListener(view -> {
+//            for(Meal meal:mAddedMeals){
+//                meal.setIsAdded(false);
+//                mMealViewModel.updateMeal(meal);
+//            }
+//
+//            highScoreDialog.dismiss();
+        });
+        btnCancel.setOnClickListener(view -> {
+            prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            highscore = prefs.getInt(KEY_HIGHSCORE,0);
+            if(score>highscore){
+                editor.putInt(KEY_HIGHSCORE,score);
+                editor.apply();
+            }
+            highScoreDialog.dismiss();
+            getActivity().getSupportFragmentManager().popBackStack();
+        });
     }
 
     private void showSolution() {
@@ -243,6 +287,14 @@ public class NewQuizFragment extends Fragment {
                 checkAnswer();
             }
         }.start();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
+        MainActivity.mToolbar.setVisibility(View.VISIBLE);
+        StartQuizFragment.loadHighscore();
     }
 
     @Override

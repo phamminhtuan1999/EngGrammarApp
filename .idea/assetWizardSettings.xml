@@ -30,8 +30,8 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_moon" />
-                            <entry key="sourceFile" value="D:\ASProject\EngGrammarApp\hình\moon.svg" />
+                            <entry key="outputName" value="ic_high_score" />
+                            <entry key="sourceFile" value="D:\ASProject\EngGrammarApp\hình\score.svg" />
                           </map>
                         </option>
                       </PersistentState>
