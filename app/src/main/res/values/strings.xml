@@ -3,6 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
+    <string name="BerlinSans">berlin_sans.ttf</string>
     <!--Ad cu-->
     <!--<string name="ad_banner">ca-app-pub-5590642543350961/4627474214</string>-->
     <string name="ad_banner">ca-app-pub-5590642543350961/4281600338</string>

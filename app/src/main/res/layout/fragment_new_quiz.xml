@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:orientation="vertical"
-    android:id="@+id/root">
-<LinearLayout
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     >
+
     <RelativeLayout
         android:id="@+id/upper_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/lower_layout"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         >
 
         <com.libRG.CustomTextView
@@ -29,13 +33,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="25dp"
+
             android:layout_marginRight="30dp"
             android:freezesText="true"
             android:gravity="center"
             android:text="Score"
             android:textColor="@color/colorText"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:fontFamily="@font/berlin_sans" />
 
         <TextView
@@ -44,30 +48,27 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_scoretxt"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginEnd="40dp"
             android:freezesText="true"
             android:gravity="center"
             android:text="0"
             android:textColor="@color/colorText"
-            android:textSize="50sp"
+            android:textSize="40sp"
             app:fontFamily="@font/berlin_sans" />
 
         <ImageView
             android:id="@+id/image_view_difficulty"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:contentDescription="image difficulty"
             android:src="@drawable/play" />
 
         <ImageView
             android:id="@+id/image_view_question_counter"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_below="@id/image_view_difficulty"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="image question counter"
             android:src="@drawable/pause" />
 
@@ -75,16 +76,14 @@
             android:id="@+id/text_view_difficulty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+
             android:layout_toRightOf="@id/image_view_difficulty"
             android:freezesText="true"
             android:gravity="center_horizontal"
-            android:paddingLeft="7dp"
-            android:paddingRight="7dp"
-            android:paddingBottom="7dp"
+            android:padding="7dp"
             android:text="Level: "
             android:textColor="@color/colorBackground"
-            android:textSize="28sp"
+            android:textSize="20sp"
             app:fontFamily="@font/berlin_sans"
             app:lib_setFont="@string/BerlinSans"
             app:lib_setRadius="10dp"
@@ -102,12 +101,10 @@
             android:layout_toRightOf="@id/image_view_question_counter"
             android:freezesText="true"
             android:gravity="center_horizontal"
-            android:paddingLeft="7dp"
-            android:paddingRight="7dp"
-            android:paddingBottom="7dp"
+            android:padding="7dp"
             android:text="Question: 1/x"
             android:textColor="@color/colorBackground"
-            android:textSize="28sp"
+            android:textSize="20sp"
             app:fontFamily="@font/berlin_sans"
             app:lib_setFont="@string/BerlinSans"
             app:lib_setRadius="10dp"
@@ -132,17 +129,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_question_count"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:freezesText="true"
             android:gravity="center_horizontal"
-            android:paddingLeft="7dp"
+            android:paddingHorizontal="10dp"
             android:paddingTop="10dp"
-            android:paddingRight="7dp"
             android:paddingBottom="10dp"
             android:text="Here will be the question text\nHere will be the question text\nHere will be the question text"
             android:textAlignment="center"
             android:textColor="@color/colorText"
-            android:textSize="28sp"
+            android:textSize="23sp"
             app:fontFamily="@font/berlin_sans"
             app:lib_setRadius="20dp"
             app:lib_setRoundedBorderColor="@color/colorText"
@@ -154,90 +150,90 @@
             android:id="@+id/radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/text_view_question"
-            android:layout_marginTop="30dp">
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp">
+            <RadioButton
+                android:id="@+id/radio_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/berlin_sans"
+                android:freezesText="true"
+                android:text="Option 1"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                app:buttonTint="@color/colorText" />
 
-<!--            <RadioButton-->
-<!--                android:id="@+id/radio_button1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/berlin_sans"-->
-<!--                android:freezesText="true"-->
-<!--                android:text="Option 1"-->
-<!--                android:textColor="@color/colorText"-->
-<!--                android:textSize="30sp"-->
-<!--                app:buttonTint="@color/colorText" />-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/radio_button2"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="15dp"-->
-<!--                android:fontFamily="@font/berlin_sans"-->
-<!--                android:freezesText="true"-->
-<!--                android:text="Option 2"-->
-<!--                android:textColor="@color/colorText"-->
-<!--                android:textSize="30sp"-->
-<!--                app:buttonTint="@color/colorText" />-->
+            <RadioButton
+                android:id="@+id/radio_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/berlin_sans"
+                android:freezesText="true"
+                android:text="Option 2"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                app:buttonTint="@color/colorText" />
 
             <RadioButton
                 android:id="@+id/radio_button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/berlin_sans"
                 android:freezesText="true"
                 android:text="Option 3"
                 android:textColor="@color/colorText"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:buttonTint="@color/colorText" />
 
             <RadioButton
                 android:id="@+id/radio_button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/berlin_sans"
                 android:freezesText="true"
                 android:text="Option 4"
                 android:textColor="@color/colorText"
-                android:textSize="30sp"
-                app:buttonTint="@color/colorText"/>
+                android:textSize="20sp"
+                app:buttonTint="@color/colorText" />
 
         </RadioGroup>
     </RelativeLayout>
 
     <LinearLayout
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/upper_layout"
+        android:id="@+id/lower_layout"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upper_layout">
 
         <Button
             android:id="@+id/button_confirm_back"
             android:layout_width="60dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:backgroundTint="@color/colorBackground"
             android:drawableTop="@drawable/back"
             android:fontFamily="@font/berlin_sans"
             android:freezesText="true"
             android:text="back"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            app:backgroundTint="@color/colorBackground" />
 
         <TextView
             android:id="@+id/text_view_countdown"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:freezesText="true"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:text="00:30"
             android:textColor="@color/colorText"
             android:textSize="50sp"
@@ -246,17 +242,18 @@
         <Button
             android:id="@+id/button_confirm_next"
             android:layout_width="60dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:backgroundTint="@color/colorBackground"
             android:drawableTop="@drawable/next"
             android:fontFamily="@font/berlin_sans"
             android:freezesText="true"
             android:text="confirm"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:textSize="20sp" />
+            android:textSize="15sp"
+            app:backgroundTint="@color/colorBackground" />
 
     </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+

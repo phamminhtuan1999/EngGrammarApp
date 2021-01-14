@@ -19,7 +19,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 frag = new StudyFragment();
                 break;
             case 1:
-                frag = new FrmTu();
+                frag = new StartQuizFragment();
                 break;
 //            case 2:
 //                frag = new FrmLession();

@@ -2,6 +2,7 @@ package com.ductho.nguphaptienganh;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,7 +17,6 @@ import androidx.viewpager.widget.ViewPager;
 import android.util.Log;
 import android.view.View;
 
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity
     TextView tvUsername;
     Button btnSignOut;
     String name;
+    public static Toolbar mToolbar;
     QuestionViewModel mQuestionViewModel;
+    SharedPreferences mSharedPreferences;
+    SharedPreferences.Editor mEditor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,12 +71,12 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         switchDarkMode = navigationView.findViewById(R.id.switch_dark_mode);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         if (AppCompatDelegate.getDefaultNightMode() ==
                 AppCompatDelegate.MODE_NIGHT_YES) {
             setTheme(R.style.DarkMode);
-            toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.dm_background));
+            mToolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.dm_background));
             switchDarkMode.setChecked(true);
         } else setTheme(R.style.LightMode);
 
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -92,8 +96,13 @@ public class MainActivity extends AppCompatActivity
 //        Intent intent = getIntent();
 //        name = intent.getStringExtra("name");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        mSharedPreferences = getApplicationContext().getSharedPreferences("MyPref",MODE_PRIVATE);
+        mEditor = mSharedPreferences.edit();
+
         if(user!=null){
             tvUsername.setText("Xin chào " + user.getDisplayName());
+            mEditor.putString("name",user.getDisplayName());
+            mEditor.commit();
         }
 
 

@@ -24,4 +24,9 @@ public interface QuestionDao {
 
     @Query("SELECT * FROM question_table ORDER BY question")
     Maybe<List<Result>> getAllQuestions();
+
+    @Query("SELECT * FROM question_table WHERE category LIKE :category AND difficulty = :difficulty AND type = 'multiple' ORDER BY question")
+    Maybe<List<Result>> getSelectedQuestions(String category, String difficulty);
+
+
 }

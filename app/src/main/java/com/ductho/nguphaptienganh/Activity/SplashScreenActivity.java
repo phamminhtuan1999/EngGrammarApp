@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.ApiResponse;
 import com.ductho.nguphaptienganh.Model.Result;
 import com.ductho.nguphaptienganh.R;
@@ -49,6 +50,10 @@ public class SplashScreenActivity extends AppCompatActivity {
                     startActivity(new Intent(SplashScreenActivity
                             .this, OnBoardActivity.class));
 
+                }
+                else if(mSharedPreferences.getString("name", null)!=null){
+                    startActivity(new Intent(SplashScreenActivity
+                            .this, MainActivity.class));
                 }
                 else{
                     startActivity(new Intent(SplashScreenActivity

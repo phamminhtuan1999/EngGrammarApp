@@ -24,6 +24,7 @@ public class QuestionViewModel extends AndroidViewModel {
     MutableLiveData<ApiResponse> mQuestions;
     MutableLiveData<Long> mInsertedQuestions;
     MutableLiveData<List<Result>> mLocalQuestions;
+    MutableLiveData<List<Result>> mSelectedLocalQuestions;
     QuestionRepository mQuestionRepository;
 
     public QuestionViewModel(@NonNull Application application) {
@@ -32,10 +33,10 @@ public class QuestionViewModel extends AndroidViewModel {
         mQuestionRepository = QuestionRepository.getInstance(application);
         mQuestions = new MutableLiveData<>();
         mLocalQuestions = new MutableLiveData<>();
+        mSelectedLocalQuestions = new MutableLiveData<>();
         mInsertedQuestions = new MutableLiveData<>();
 
     }
-
 
     public void insertQuestion(Result result) {
         mQuestionRepository.insertQuestion(result)
@@ -66,6 +67,37 @@ public class QuestionViewModel extends AndroidViewModel {
 
     public LiveData<Long> getInsertedQuestion() {
         return mInsertedQuestions;
+    }
+
+    public void fetchSelectedLocalQuestions(String category,String difficulty) {
+        mQuestionRepository.fetchSelectedLocalQuestions(category, difficulty)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new MaybeObserver<List<Result>>() {
+                    @Override
+                    public void onSubscribe(@io.reactivex.rxjava3.annotations.NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Result> results) {
+                        mSelectedLocalQuestions.setValue(results);
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public LiveData<List<Result>> getSelectedLocalQuestions() {
+        return mSelectedLocalQuestions;
     }
 
     public void fetchLocalQuestions() {

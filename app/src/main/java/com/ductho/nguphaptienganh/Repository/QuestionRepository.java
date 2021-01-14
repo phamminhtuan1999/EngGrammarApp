@@ -36,6 +36,9 @@ public class QuestionRepository {
     public Maybe<List<Result>> fetchLocalQuestions(){
         return mQuestionDao.getAllQuestions();
     }
+    public Maybe<List<Result>> fetchSelectedLocalQuestions(String category,String difficulty){
+        return mQuestionDao.getSelectedQuestions(category, difficulty);
+    }
 
     public Maybe<Long> insertQuestion(Result result){
         return  mQuestionDao.insert(result);

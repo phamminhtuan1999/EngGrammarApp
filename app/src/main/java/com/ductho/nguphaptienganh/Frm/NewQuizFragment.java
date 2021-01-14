@@ -16,10 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.ductho.nguphaptienganh.Model.Result;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.ViewModel.QuestionViewModel;
+import com.ductho.nguphaptienganh.databinding.FragmentNewQuizBinding;
 import com.ductho.nguphaptienganh.databinding.FragmentQuizBinding;
 
 import java.util.ArrayList;
@@ -28,10 +30,11 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class QuizFragment extends Fragment {
+public class NewQuizFragment extends Fragment {
     private CountDownTimer mCountDownTimer;
     private long timeLeftInMillis;
     List<String> options;
+    RadioButton selectedRb;
 
     public static final String EXTRA_SCORE = "extraScore";
     private static final long COUNTDOWN_IN_MILLIS = 30000;
@@ -42,7 +45,7 @@ public class QuizFragment extends Fragment {
     private static final String KEY_ANSWERED = "keyAnswered";
 //    private static final String KEY_QUESTION_LIST = "keyQuestionList";
 
-    FragmentQuizBinding mBinding;
+    FragmentNewQuizBinding mBinding;
     QuestionViewModel mQuestionViewModel;
 
     private ColorStateList textColorDefaultRb;
@@ -56,13 +59,12 @@ public class QuizFragment extends Fragment {
     private int score;
 
     private long backPressedTime;
-    RadioButton radioButton4;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding = FragmentQuizBinding.inflate(inflater, container, false);
-        radioButton4 = mBinding.getRoot().findViewById(R.id.radio_button4);
+        mBinding = FragmentNewQuizBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
 
     }
@@ -74,13 +76,9 @@ public class QuizFragment extends Fragment {
         textColorDefaultCd = mBinding.textViewCountdown.getTextColors();
         options = new ArrayList<>();
 
-//        Log.d("ABC","ID button 4"+radioButton4.getId());
-
-
-
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
-        mQuestionViewModel.fetchLocalQuestions();
-        mQuestionViewModel.getLocalQuestions().observe(getActivity(), results -> {
+        mQuestionViewModel.fetchSelectedLocalQuestions("Entertainment%","easy");
+        mQuestionViewModel.getSelectedLocalQuestions().observe(getActivity(), results -> {
             questionList = results;
             if (savedInstanceState == null) {
                 questionCountTotal = questionList.size();
@@ -102,22 +100,42 @@ public class QuizFragment extends Fragment {
                 }
             }
         });
+
+        mBinding.buttonConfirmNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!answered) {
+                    if (mBinding.radioButton1.isChecked()
+                            || mBinding.radioButton2.isChecked()
+                            || mBinding.radioButton3.isChecked()
+                            || mBinding.radioButton4.isChecked()) {
+                        checkAnswer();
+                    } else {
+                        Toast.makeText(getActivity(), "Please select an answer", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    showNextQuestion();
+                }
+            }
+        });
     }
 
     private void checkAnswer() {
         answered = true;
-//        RadioButton selectedRb = mBinding.radioGroup.getCheckedRadioButtonId();
-        int selectedRbInt = mBinding.radioGroup.getCheckedRadioButtonId();
-        RadioButton selectedRb = (RadioButton) mBinding.radioGroup.getChildAt(selectedRbInt);
-        String selectedAnswer = selectedRb.getText().toString();
-//        int answerNr = selectedRbInt + 1;
-        if (selectedAnswer.equals(currentQuestion.getCorrectAnswer())) {
-            score++;
-            mBinding.textViewScore.setText(
+        int selectedID = mBinding.radioGroup.getCheckedRadioButtonId();
+        if (selectedID != -1) {
+            selectedRb = (RadioButton) mBinding.getRoot().findViewById(selectedID);
+            String selectedAnswer = selectedRb.getText().toString();
+            if (selectedAnswer.equals(currentQuestion.getCorrectAnswer())) {
+                score++;
+                mBinding.textViewScore.setText(
 //                    "Score: " +
-                    String.valueOf(score));
+                        String.valueOf(score));
+            }
         }
-
+        if (mCountDownTimer != null)
+            mCountDownTimer.cancel();
         showSolution();
     }
 
@@ -125,10 +143,12 @@ public class QuizFragment extends Fragment {
         mBinding.radioButton1.setTextColor(textColorDefaultRb);
         mBinding.radioButton2.setTextColor(textColorDefaultRb);
         mBinding.radioButton3.setTextColor(textColorDefaultRb);
-//        mBinding.radioButton4.setTextColor(textColorDefaultRb);
+        mBinding.radioButton4.setTextColor(textColorDefaultRb);
 //        radioButton4.setTextColor(textColorDefaultRb);
         mBinding.radioGroup.clearCheck();
         options.clear();
+        if (mCountDownTimer != null)
+            mCountDownTimer.cancel();
 
         if (questionCounter < questionCountTotal) {
             currentQuestion = questionList.get(questionCounter);
@@ -141,7 +161,7 @@ public class QuizFragment extends Fragment {
             mBinding.radioButton1.setText(options.get(0));
             mBinding.radioButton2.setText(options.get(1));
             mBinding.radioButton3.setText(options.get(2));
-//            mBinding.radioButton4.setText(options.get(3));
+            mBinding.radioButton4.setText(options.get(3));
 //            radioButton4.setText(options.get(3));
 
             questionCounter++;
@@ -163,7 +183,7 @@ public class QuizFragment extends Fragment {
         mBinding.radioButton1.setTextColor(Color.RED);
         mBinding.radioButton2.setTextColor(Color.RED);
         mBinding.radioButton3.setTextColor(Color.RED);
-//        mBinding.radioButton4.setTextColor(Color.RED);
+        mBinding.radioButton4.setTextColor(Color.RED);
 //        radioButton4.setTextColor(Color.RED);
 
         if (options != null) {
@@ -177,8 +197,7 @@ public class QuizFragment extends Fragment {
                 mBinding.radioButton3.setTextColor(Color.GREEN);
                 mBinding.textViewQuestion.setText("Answer 3 is correct");
             } else {
-//                mBinding.radioButton4.setTextColor(Color.GREEN);
-//                radioButton4.setTextColor(Color.GREEN);
+                mBinding.radioButton4.setTextColor(Color.GREEN);
                 mBinding.textViewQuestion.setText("Answer 4 is correct");
             }
         }
