@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
     android:id="@+id/layout_portrait">
     <androidx.recyclerview.widget.RecyclerView
@@ -17,5 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="32dp"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add"
+        app:tint="@color/white"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

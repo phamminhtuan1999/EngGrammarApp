@@ -37,7 +37,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     public void splashScreenStart() {
         fetchQuestionsFromAPI();
-        splashScreenStart();
         mQuestionViewModel.getInsertedQuestion().observeForever(aLong -> {
             Log.d("ABC",aLong+"");
         });

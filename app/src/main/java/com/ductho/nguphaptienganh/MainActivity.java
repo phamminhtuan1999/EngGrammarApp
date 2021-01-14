@@ -40,14 +40,12 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-import static androidx.annotation.InspectableProperty.ValueType.COLOR;
-
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener {
     public static Switch switchDarkMode;
     ViewPager pager;
     //    TabLayout tabLayout;
-    BubbleNavigationLinearView bubbleNavigationLinearView;
+    public static BubbleNavigationLinearView mBubbleNavigationLinearView;
     DrawerLayout drawer;
     NavigationView navigationView;
     LinearLayout menuCau, menuTu, menuChiaSe, menuDanhGia;
@@ -62,9 +60,9 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
-        mQuestionViewModel.fetchQuestions(10);
-        mQuestionViewModel.getQuestions().observe(this,apiResponse -> {
-            Log.d("ABC",apiResponse.toString());
+        mQuestionViewModel.fetchLocalQuestions();
+        mQuestionViewModel.getLocalQuestions().observe(this,results -> {
+            Log.d("ABC",results.toString());
         });
 
         navigationView = findViewById(R.id.nav_view);
@@ -133,8 +131,8 @@ public class MainActivity extends AppCompatActivity
 
         //navigationView.setNavigationItemSelectedListener(this);
         List<Fragment> fragList = new ArrayList<>();
-        bubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
-        bubbleNavigationLinearView.setTypeface(ResourcesCompat.getFont(this, R.font.utm_bryantlg));
+        mBubbleNavigationLinearView = findViewById(R.id.bottom_navigation_view_linear);
+        mBubbleNavigationLinearView.setTypeface(ResourcesCompat.getFont(this, R.font.utm_bryantlg));
         pager = (ViewPager) findViewById(R.id.view_pager);
 //        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         FragmentManager manager = getSupportFragmentManager();
@@ -149,7 +147,7 @@ public class MainActivity extends AppCompatActivity
 
             @Override
             public void onPageSelected(int position) {
-                bubbleNavigationLinearView.setCurrentActiveItem(position);
+                mBubbleNavigationLinearView.setCurrentActiveItem(position);
             }
 
             @Override
@@ -157,7 +155,7 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        bubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
+        mBubbleNavigationLinearView.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
             public void onNavigationChanged(View view, int position) {
                 pager.setCurrentItem(position, true);
@@ -189,23 +187,22 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Thoát ứng dụng")
-                    .setMessage("Bạn chắc chắn muốn thoát ứng dụng?")
-                    .setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+//    @Override
+//    public void onBackPressed() {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
+//            new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Thoát ứng dụng")
+//                    .setMessage("Bạn chắc chắn muốn thoát ứng dụng?")
+//                    .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            System.exit(0);
+//                        }
+//                    }).setNegativeButton("Không", null).show();
 
-                            System.exit(0);
-                        }
-                    }).setNegativeButton("Không", null).show();
-        }
-    }
 
     @Override
     public void onClick(View v) {

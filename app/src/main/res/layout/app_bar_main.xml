@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ductho.nguphaptienganh.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -13,99 +14,105 @@
         android:theme="@style/AppTheme.AppBarOverlay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/llMain">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"></androidx.appcompat.widget.Toolbar>
-
-
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 
 
-<!--    <include-->
-<!--        layout="@layout/content_main" />-->
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+    <!--    <include-->
+    <!--        layout="@layout/content_main" />-->
+    <LinearLayout
+        android:id="@+id/llMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_marginBottom="70dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view_linear"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"></androidx.viewpager.widget.ViewPager>
-
-    <com.gauravk.bubblenavigation.BubbleNavigationLinearView
-        android:id="@+id/bottom_navigation_view_linear"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="?android:colorBackground"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_sentence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@color/gray_inactive"
-            app:bt_icon="@drawable/ic_lines"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="Câu"
-            app:bt_titleSize="16sp" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_word"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@color/gray_inactive"
-            app:bt_icon="@drawable/ic_letter"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="Từ"
-            app:bt_titleSize="16sp" />
+        <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+            android:id="@+id/bottom_navigation_view_linear"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="?android:colorBackground"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            >
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_lesson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@color/gray_inactive"
-            app:bt_icon="@drawable/ic_lesson"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="Bài học"
-            app:bt_titleSize="16sp" />
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_sentence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_active="true"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
+                app:bt_icon="@drawable/ic_lines"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="Câu"
+                app:bt_titleSize="16sp" />
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@color/gray_inactive"
-            app:bt_icon="@drawable/ic_review"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="Ôn tập"
-            app:bt_titleSize="16sp" />
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
+                app:bt_icon="@drawable/ic_letter"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="Từ"
+                app:bt_titleSize="16sp" />
 
-        <com.gauravk.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/colorPrimary"
-            app:bt_colorInactive="@color/gray_inactive"
-            app:bt_icon="@drawable/ic_note"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="Ghi chú"
-            app:bt_titleSize="16sp" />
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_lesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
+                app:bt_icon="@drawable/ic_lesson"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="Bài học"
+                app:bt_titleSize="16sp" />
 
-    </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
+                app:bt_icon="@drawable/ic_review"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="Ôn tập"
+                app:bt_titleSize="16sp" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/colorPrimary"
+                app:bt_colorInactive="@color/gray_inactive"
+                app:bt_icon="@drawable/ic_note"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="Ghi chú"
+                app:bt_titleSize="16sp" />
+
+        </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+    </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -8,14 +8,15 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
-
+//    final static StudyFragment studyFragment = new StudyFragment();
     @Override
     public Fragment getItem(int position) {
 
         Fragment frag = null;
         switch (position) {
             case 0:
-                frag = new FrmCau();
+//                frag = new FrmCau();
+                frag = new StudyFragment();
                 break;
             case 1:
                 frag = new FrmTu();
@@ -43,7 +44,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         String title = "";
         switch (position) {
             case 0:
-                title = "Câu";
+                title = "Học bài";
                 break;
             case 1:
                 title = "Từ";

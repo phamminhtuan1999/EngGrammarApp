@@ -1,6 +1,9 @@
 package com.ductho.nguphaptienganh.Model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -19,6 +22,8 @@ public class Result {
     @SerializedName("difficulty")
     @Expose
     private String difficulty;
+    @PrimaryKey
+    @NonNull
     @SerializedName("question")
     @Expose
     private String question;
@@ -40,6 +45,7 @@ public class Result {
 
     @SerializedName("incorrect_answers")
     @Expose
+    @TypeConverters(DataConverter.class)
     private List<String> incorrectAnswers;
 
     public String getCategory() {

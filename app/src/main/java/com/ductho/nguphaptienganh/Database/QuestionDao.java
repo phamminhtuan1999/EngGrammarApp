@@ -1,5 +1,6 @@
 package com.ductho.nguphaptienganh.Database;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,7 +11,7 @@ import com.ductho.nguphaptienganh.Model.Result;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Maybe;
-
+@Dao
 public interface QuestionDao {
     @Insert
     Maybe<Long> insert(Result result);
