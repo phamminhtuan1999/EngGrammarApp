@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.CustomAdapter;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.BaiHoc;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.DanhMucCau;
@@ -28,8 +29,14 @@ public class FrmCau extends Fragment {
     CustomAdapter adapter;
 
     public FrmCau() {
-
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_cau, container, false);

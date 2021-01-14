@@ -66,27 +66,7 @@
                 app:bt_title="Câu"
                 app:bt_titleSize="16sp" />
 
-            <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_word"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bt_colorActive="@color/colorPrimary"
-                app:bt_colorInactive="@color/gray_inactive"
-                app:bt_icon="@drawable/ic_letter"
-                app:bt_shape="@drawable/transition_background_drawable_search"
-                app:bt_title="Từ"
-                app:bt_titleSize="16sp" />
 
-            <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_lesson"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bt_colorActive="@color/colorPrimary"
-                app:bt_colorInactive="@color/gray_inactive"
-                app:bt_icon="@drawable/ic_lesson"
-                app:bt_shape="@drawable/transition_background_drawable_search"
-                app:bt_title="Bài học"
-                app:bt_titleSize="16sp" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_review"
@@ -96,7 +76,7 @@
                 app:bt_colorInactive="@color/gray_inactive"
                 app:bt_icon="@drawable/ic_review"
                 app:bt_shape="@drawable/transition_background_drawable_search"
-                app:bt_title="Ôn tập"
+                app:bt_title="Test"
                 app:bt_titleSize="16sp" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
@@ -116,3 +96,25 @@
 
 
 </LinearLayout>
+
+<!--<com.gauravk.bubblenavigation.BubbleToggleView-->
+<!--android:id="@+id/l_item_word"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--app:bt_colorActive="@color/colorPrimary"-->
+<!--app:bt_colorInactive="@color/gray_inactive"-->
+<!--app:bt_icon="@drawable/ic_letter"-->
+<!--app:bt_shape="@drawable/transition_background_drawable_search"-->
+<!--app:bt_title="Từ"-->
+<!--app:bt_titleSize="16sp" />-->
+
+<!--<com.gauravk.bubblenavigation.BubbleToggleView-->
+<!--android:id="@+id/l_item_lesson"-->
+<!--android:layout_width="wrap_content"-->
+<!--android:layout_height="wrap_content"-->
+<!--app:bt_colorActive="@color/colorPrimary"-->
+<!--app:bt_colorInactive="@color/gray_inactive"-->
+<!--app:bt_icon="@drawable/ic_lesson"-->
+<!--app:bt_shape="@drawable/transition_background_drawable_search"-->
+<!--app:bt_title="Bài học"-->
+<!--app:bt_titleSize="16sp" />-->

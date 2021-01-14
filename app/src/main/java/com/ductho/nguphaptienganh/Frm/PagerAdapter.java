@@ -21,13 +21,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 frag = new FrmTu();
                 break;
+//            case 2:
+//                frag = new FrmLession();
+//                break;
+//            case 3:
+//                frag = new FrmReview();
+//                break;
             case 2:
-                frag = new FrmLession();
-                break;
-            case 3:
-                frag = new FrmReview();
-                break;
-            case 4:
                 frag = new FrmNote();
                 break;
         }
@@ -36,7 +36,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 3;
     }
 
     @Override
@@ -47,15 +47,15 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 title = "Học bài";
                 break;
             case 1:
-                title = "Từ";
+                title = "Test";
                 break;
+//            case 2:
+//                title = "Lession";
+//                break;
+//            case 3:
+//                title = "Review";
+//                break;
             case 2:
-                title = "Lession";
-                break;
-            case 3:
-                title = "Review";
-                break;
-            case 4:
                 title = "Note";
                 break;
         }

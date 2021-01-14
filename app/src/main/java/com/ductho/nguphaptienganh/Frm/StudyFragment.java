@@ -55,6 +55,7 @@ public class StudyFragment extends Fragment {
         mBinding.llOntap.setOnClickListener(onLayoutClickListener);
     }
 
+
 //    @Override
 //    public void onDetach() {
 //        super.onDetach();

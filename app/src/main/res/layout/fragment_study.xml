@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Frm.StudyFragment"
-    android:gravity="center">
+    >
 
     <TextView
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.2"
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +18,11 @@
         android:fontFamily="@font/utm_avo_bold"
         android:text="Choose one"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll1"/>
 
     <LinearLayout
         android:id="@+id/ll1"
@@ -24,7 +30,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvTitle"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll2">
 
         <LinearLayout
             android:id="@+id/llCau"
@@ -115,6 +125,10 @@
 
     <LinearLayout
         android:id="@+id/ll2"
+        app:layout_constraintTop_toBottomOf="@id/ll1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/ll1"
@@ -208,4 +222,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

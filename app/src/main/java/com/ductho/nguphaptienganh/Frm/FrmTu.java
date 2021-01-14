@@ -1,9 +1,11 @@
 package com.ductho.nguphaptienganh.Frm;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +19,7 @@ import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.CustomAdapter;
 import com.ductho.nguphaptienganh.DanhMucTu;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.BaiHoc;
 import com.ductho.nguphaptienganh.R;
 
@@ -25,9 +28,17 @@ import java.util.ArrayList;
 public class FrmTu extends Fragment {
     ArrayList<BaiHoc> arrayList, arrayListCopy;
     CustomAdapter adapter;
+
     public FrmTu() {
 
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frm_cau, container, false);
@@ -40,7 +51,7 @@ public class FrmTu extends Fragment {
         adapter = new CustomAdapter(arrayList, getContext(), 0);
         rv.setLayoutManager(new LinearLayoutManager(getContext()));
         rv.setAdapter(adapter);
-        return view ;
+        return view;
     }
 
 
@@ -57,7 +68,7 @@ public class FrmTu extends Fragment {
         for (int i = 0; i < listAdapter.getCount(); i++) {
             View listItem = listAdapter.getView(i, null, listView);
 
-            if(listItem != null){
+            if (listItem != null) {
                 // This next line is needed before you call measure or else you won't get measured height at all. The listitem needs to be drawn first to know the height.
                 listItem.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
                 listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
@@ -86,11 +97,11 @@ public class FrmTu extends Fragment {
             @Override
             public boolean onQueryTextChange(String newText) {
                 arrayList.clear();
-                if(newText.equals("")){
+                if (newText.equals("")) {
                     arrayList.addAll(arrayListCopy);
-                }else {
-                    for(BaiHoc baiHoc : arrayListCopy){
-                        if(baiHoc.getTitle().toLowerCase().contains(newText)){
+                } else {
+                    for (BaiHoc baiHoc : arrayListCopy) {
+                        if (baiHoc.getTitle().toLowerCase().contains(newText)) {
                             arrayList.add(baiHoc);
                         }
                     }

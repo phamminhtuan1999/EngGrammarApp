@@ -119,13 +119,17 @@
             android:layout_width="match_parent"
             android:layout_height="50sp"
             android:layout_marginTop="25sp"
-            android:background="@drawable/etstyle"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:fontFamily="@font/utm_avo"
             android:maxLines="1"
             android:paddingLeft="8dp"
-            android:singleLine="true" />
+            android:singleLine="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxCornerRadiusBottomEnd="999dp"
+            app:boxCornerRadiusBottomStart="999dp"
+            app:boxCornerRadiusTopEnd="999dp"
+            app:boxCornerRadiusTopStart="999dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox

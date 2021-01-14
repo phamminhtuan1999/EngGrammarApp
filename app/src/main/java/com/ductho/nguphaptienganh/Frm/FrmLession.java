@@ -18,6 +18,7 @@ import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.AdapterMain;
 import com.ductho.nguphaptienganh.DanhMucLession;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.ItemMain;
 import com.ductho.nguphaptienganh.R;
 
@@ -30,6 +31,12 @@ public class FrmLession extends Fragment {
 
     public FrmLession() {
 
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
     }
 
     @Override

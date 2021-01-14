@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.AdapterMain;
+import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.DanhMucReview;
 import com.ductho.nguphaptienganh.Model.ItemMain;
 import com.ductho.nguphaptienganh.R;
@@ -30,6 +31,12 @@ public class FrmReview extends Fragment {
 
     public FrmReview() {
 
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
     }
 
     @Override
