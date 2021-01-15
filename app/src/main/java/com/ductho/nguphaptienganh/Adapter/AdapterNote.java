@@ -16,8 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ductho.nguphaptienganh.Activity.AddActivity;
-import com.ductho.nguphaptienganh.DBHelper;
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.Model.Note;
 import com.ductho.nguphaptienganh.OnNoteClickListener;
 import com.ductho.nguphaptienganh.R;

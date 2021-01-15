@@ -1,4 +1,4 @@
-package com.ductho.nguphaptienganh;
+package com.ductho.nguphaptienganh.Model;
 
 import android.provider.BaseColumns;
 

@@ -19,7 +19,7 @@ import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.CustomAdapter;
 import com.ductho.nguphaptienganh.DanhMucTu;
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.Model.BaiHoc;
 import com.ductho.nguphaptienganh.R;
 

@@ -1,4 +1,4 @@
-package com.ductho.nguphaptienganh;
+package com.ductho.nguphaptienganh.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,10 +13,10 @@ import com.ductho.nguphaptienganh.Model.Note;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.COLUMN_DESCRIPTION;
-import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.COLUMN_TITLE;
-import static com.ductho.nguphaptienganh.NoteContract.NoteEntry.NOTE_TABLE;
-import static com.ductho.nguphaptienganh.NoteContract.NoteEntry._ID;
+import static com.ductho.nguphaptienganh.Model.NoteContract.NoteEntry.COLUMN_DESCRIPTION;
+import static com.ductho.nguphaptienganh.Model.NoteContract.NoteEntry.COLUMN_TITLE;
+import static com.ductho.nguphaptienganh.Model.NoteContract.NoteEntry.NOTE_TABLE;
+import static com.ductho.nguphaptienganh.Model.NoteContract.NoteEntry._ID;
 
 /**
  * Created by Aman on 9/18/2017.

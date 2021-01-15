@@ -1,4 +1,4 @@
-package com.ductho.nguphaptienganh;
+package com.ductho.nguphaptienganh.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -28,8 +28,10 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.ductho.nguphaptienganh.Activity.LoginActivity;
 import com.ductho.nguphaptienganh.Frm.PagerAdapter;
+import com.ductho.nguphaptienganh.R;
+import com.ductho.nguphaptienganh.RateApp;
+import com.ductho.nguphaptienganh.ShareApp;
 import com.ductho.nguphaptienganh.ViewModel.QuestionViewModel;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
 import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
@@ -40,8 +42,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener {
+    public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static Switch switchDarkMode;
     ViewPager pager;
     //    TabLayout tabLayout;

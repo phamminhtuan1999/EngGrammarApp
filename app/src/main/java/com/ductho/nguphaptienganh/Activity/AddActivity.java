@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ductho.nguphaptienganh.DBHelper;
+import com.ductho.nguphaptienganh.Database.DBHelper;
 import com.ductho.nguphaptienganh.Frm.FrmNote;
 import com.ductho.nguphaptienganh.R;
 

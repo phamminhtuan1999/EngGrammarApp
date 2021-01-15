@@ -3,7 +3,6 @@ package com.ductho.nguphaptienganh.Frm;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,7 +17,7 @@ import android.widget.SearchView;
 
 import com.ductho.nguphaptienganh.Adapter.AdapterMain;
 import com.ductho.nguphaptienganh.DanhMucLession;
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.Model.ItemMain;
 import com.ductho.nguphaptienganh.R;
 

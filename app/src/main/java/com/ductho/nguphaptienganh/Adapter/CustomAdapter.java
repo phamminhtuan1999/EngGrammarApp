@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 import com.ductho.nguphaptienganh.Activity.LessonActivity;
 import com.ductho.nguphaptienganh.Activity.NoiDungActivity;
-import com.ductho.nguphaptienganh.Ads.CountAds;
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.Model.BaiHoc;
 import com.ductho.nguphaptienganh.R;
 

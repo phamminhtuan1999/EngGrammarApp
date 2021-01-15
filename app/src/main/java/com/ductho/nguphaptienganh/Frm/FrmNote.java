@@ -8,7 +8,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.SearchView;
 
 
@@ -18,13 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ductho.nguphaptienganh.Adapter.AdapterNote;
 import com.ductho.nguphaptienganh.Activity.AddActivity;
-import com.ductho.nguphaptienganh.DBHelper;
-import com.ductho.nguphaptienganh.Model.BaiHoc;
+import com.ductho.nguphaptienganh.Database.DBHelper;
 import com.ductho.nguphaptienganh.Model.Note;
 import com.ductho.nguphaptienganh.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FrmNote extends Fragment {

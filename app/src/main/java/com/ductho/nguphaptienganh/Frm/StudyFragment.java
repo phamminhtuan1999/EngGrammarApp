@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.databinding.FragmentStudyBinding;
 

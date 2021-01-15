@@ -19,8 +19,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.ductho.nguphaptienganh.Activity.LoadLesson;
-import com.ductho.nguphaptienganh.Ads.AdFull;
-import com.ductho.nguphaptienganh.MainActivity;
+import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.Model.ItemMain;
 import com.ductho.nguphaptienganh.R;
 

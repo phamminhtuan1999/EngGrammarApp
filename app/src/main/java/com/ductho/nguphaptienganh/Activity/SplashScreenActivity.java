@@ -1,7 +1,6 @@
 package com.ductho.nguphaptienganh.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -11,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
-import com.ductho.nguphaptienganh.MainActivity;
 import com.ductho.nguphaptienganh.Model.ApiResponse;
 import com.ductho.nguphaptienganh.Model.Result;
 import com.ductho.nguphaptienganh.R;
