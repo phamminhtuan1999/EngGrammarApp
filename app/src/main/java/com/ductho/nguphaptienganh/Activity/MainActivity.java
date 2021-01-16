@@ -28,7 +28,7 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.ductho.nguphaptienganh.Frm.PagerAdapter;
+import com.ductho.nguphaptienganh.Adapter.PagerAdapter;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.RateApp;
 import com.ductho.nguphaptienganh.ShareApp;
@@ -52,18 +52,21 @@ import java.util.List;
     LinearLayout menuCau, menuTu, menuChiaSe, menuDanhGia;
     //    AdView adView;
     TextView tvUsername;
-    Button btnSignOut;
+    Button mBtnSignOut;
     String name;
     public static Toolbar mToolbar;
     QuestionViewModel mQuestionViewModel;
     SharedPreferences mSharedPreferences;
     SharedPreferences.Editor mEditor;
+    private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
+
         mQuestionViewModel = new ViewModelProvider(this).get(QuestionViewModel.class);
         mQuestionViewModel.fetchLocalQuestions();
         mQuestionViewModel.getLocalQuestions().observe(this,results -> {
@@ -107,8 +110,8 @@ import java.util.List;
         }
 
 
-        btnSignOut = navigationView.findViewById(R.id.btn_sign_out);
-        btnSignOut.setOnClickListener(new View.OnClickListener() {
+        mBtnSignOut = navigationView.findViewById(R.id.btn_sign_out);
+        mBtnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new AlertDialog.Builder(MainActivity.this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Đăng xuất")
@@ -116,6 +119,7 @@ import java.util.List;
                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                mAuth.signOut();
                                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                                 startActivity(intent);
                             }

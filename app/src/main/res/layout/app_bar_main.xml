@@ -91,6 +91,16 @@
                 app:bt_title="Ghi chú"
                 app:bt_titleSize="16sp" />
 
+            <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/l_item_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/colorPrimary"
+            app:bt_colorInactive="@color/gray_inactive"
+            app:bt_icon="@drawable/ic_settings"
+            app:bt_shape="@drawable/transition_background_drawable_search"
+            app:bt_title="Cài đặt"
+            app:bt_titleSize="16sp" />
         </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
 
     </LinearLayout>

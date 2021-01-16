@@ -21,6 +21,11 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
+    <style name="MyIOSSwitch" parent="Theme.MaterialComponents">
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="android:colorForeground">@android:color/darker_gray</item>
+    </style>
+
     <style name="DarkMode" parent= "AppTheme">
         <item name="border">@color/white</item>
         <item name="bgcolor">#000000</item>

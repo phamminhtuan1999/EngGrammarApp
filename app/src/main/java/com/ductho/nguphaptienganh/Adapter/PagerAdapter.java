@@ -1,14 +1,20 @@
-package com.ductho.nguphaptienganh.Frm;
+package com.ductho.nguphaptienganh.Adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.ductho.nguphaptienganh.Frm.FrmNote;
+import com.ductho.nguphaptienganh.Frm.FrmSettings;
+import com.ductho.nguphaptienganh.Frm.StartQuizFragment;
+import com.ductho.nguphaptienganh.Frm.StudyFragment;
+
 public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
-//    final static StudyFragment studyFragment = new StudyFragment();
+
+    //    final static StudyFragment studyFragment = new StudyFragment();
     @Override
     public Fragment getItem(int position) {
 
@@ -24,11 +30,12 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 //            case 2:
 //                frag = new FrmLession();
 //                break;
-//            case 3:
-//                frag = new FrmReview();
-//                break;
+
             case 2:
                 frag = new FrmNote();
+                break;
+            case 3:
+                frag = new FrmSettings();
                 break;
         }
         return frag;
@@ -36,7 +43,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -57,6 +64,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 //                break;
             case 2:
                 title = "Note";
+                break;
+            case 3:
+                title = "Cài đặt";
                 break;
         }
 
