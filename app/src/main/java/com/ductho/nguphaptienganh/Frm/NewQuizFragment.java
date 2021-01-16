@@ -333,7 +333,7 @@ public class NewQuizFragment extends Fragment {
         AlertDialog highScoreDialog = highScoreDialogBuilder.show();
         Button btnPlayAgain = promptView.findViewById(R.id.btn_dialog_yes);
         Button btnCancel = promptView.findViewById(R.id.btn_dialog_no);
-        TextView tvScore = promptView.findViewById(R.id.tvScore);
+        TextView tvScore = promptView.findViewById(R.id.edtEmail);
         tvScore.setText("Your score is: " + mScore);
         btnPlayAgain.setOnClickListener(view -> {
 //            for(Meal meal:mAddedMeals){
