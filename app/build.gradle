@@ -83,4 +83,14 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:2.3.0-alpha02"
 
     implementation 'com.libRG:customtextview:2.2'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Also declare the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
 }

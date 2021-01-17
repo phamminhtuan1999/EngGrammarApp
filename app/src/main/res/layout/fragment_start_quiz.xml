@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="My Awesome Quiz"
+        android:text="Bài trắc nghiệm"
         android:fontFamily="@font/utm_avo_bold"
         android:textColor="@color/white"
         android:textSize="35sp" />
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Start Quiz" />
+        android:text="Bắt đầu" />
 
 
 

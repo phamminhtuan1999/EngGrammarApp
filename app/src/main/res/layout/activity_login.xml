@@ -22,11 +22,11 @@
             android:layout_marginTop="80dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/tv_welcome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tv_welcome"
-            app:srcCompat="@drawable/ic_xstation_logo"/>
+            app:srcCompat="@drawable/ic_xstation_logo" />
 
         <TextView
             android:id="@+id/tv_welcome"
@@ -57,16 +57,15 @@
             app:layout_constraintBottom_toTopOf="@id/textInputLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_welcome"
-             />
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="63dp"
-            android:layout_marginTop="50dp"
             android:layout_marginStart="48dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="48dp"
             android:padding="1dp"
             app:boxCornerRadiusBottomEnd="999dp"
@@ -91,7 +90,7 @@
                 android:paddingBottom="20dp"
                 android:textColor="#000000"
                 android:textColorHint="#FFFEFE"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -211,6 +210,17 @@
         <!--            app:layout_constraintTop_toBottomOf="@id/tv_or" />-->
 
 
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/need_help_textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_sign_in"
+            app:layout_constraintVertical_bias="0.8"/>
+
         <TextView
             android:id="@+id/need_help_textView"
             android:layout_width="wrap_content"
@@ -222,8 +232,7 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/layout_sign_up"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_sign_up"
@@ -231,8 +240,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <TextView
                 android:id="@+id/tv_new_xstation"
@@ -256,12 +265,24 @@
                 android:text="Đăng kí"
                 android:textColor="@color/main"
                 android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tv_new_xstation"/>
+                app:layout_constraintStart_toEndOf="@+id/tv_new_xstation"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--<ImageView-->
+<!--android:layout_width="30dp"-->
+<!--android:layout_height="30dp"-->
+<!--android:background="@drawable/background_google"-->
+<!--android:src="@drawable/ic_google"-->
+<!--app:layout_constraintBottom_toTopOf="@id/need_help_textView"-->
+<!--app:layout_constraintEnd_toEndOf="parent"-->
+<!--app:layout_constraintStart_toStartOf="parent"-->
+<!--app:layout_constraintTop_toBottomOf="@id/button_sign_in"-->
+<!--app:layout_constraintVertical_bias="0.8"-->
+<!--android:padding="2dp"/>-->

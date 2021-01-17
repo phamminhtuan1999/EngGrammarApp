@@ -64,7 +64,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void fetchQuestionsFromAPI() {
-        mQuestionViewModel.fetchQuestions(10);
+        mQuestionViewModel.fetchQuestions(50);
         mQuestionViewModel.getQuestions().observe(this, new Observer<ApiResponse>() {
             @Override
             public void onChanged(ApiResponse apiResponse) {

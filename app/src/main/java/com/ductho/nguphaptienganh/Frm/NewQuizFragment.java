@@ -113,42 +113,46 @@ public class NewQuizFragment extends Fragment {
             }
         });
 
-
-            mBinding.buttonConfirmBack.setClickable(false);
+//        if (mQuestionCounter == 0)
+//            mBinding.buttonConfirmBack.setClickable(false);
 
 
         mBinding.buttonConfirmNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mBackPressed){
+                Log.d("ABC", mQuestionCounter + " vs " + mRealQuestionCounter);
+                if (mBackPressed) {
                     mRealQuestionCounter--;
+//                    mQuestionCounter++;
+//                    mAnswered = true;
                     mBackPressed = false;
                 }
-                Log.d("ABC", mQuestionCounter + " vs " + mRealQuestionCounter);
-                if(mQuestionCounter == mRealQuestionCounter) {
+                if (mQuestionCounter == mRealQuestionCounter) {
                     if (!mAnswered) {
                         if (mBinding.radioButton1.isChecked()
                                 || mBinding.radioButton2.isChecked()
                                 || mBinding.radioButton3.isChecked()
                                 || mBinding.radioButton4.isChecked()) {
                             checkAnswer();
+//                            mRealQuestionCounter++;
                         } else {
                             Toast.makeText(getActivity(), "Please select an answer", Toast.LENGTH_SHORT).show();
                         }
                     } else {
                         showNextQuestion();
                     }
-                }
-                else{
+                } else {
                     showNextAnsweredQuestion();
                 }
             }
         });
 
         mBinding.buttonConfirmBack.setOnClickListener(v -> {
-            mBackPressed = true;
-            if(mQuestionCounter>1)
+            Log.d("ABC", mQuestionCounter + " vs " + mRealQuestionCounter);
+            if (mQuestionCounter > 1) {
+                mBackPressed = true;
                 showPreviousQuestion();
+            }
         });
     }
 
@@ -253,7 +257,6 @@ public class NewQuizFragment extends Fragment {
         mBinding.buttonConfirmNext.setText("next");
 
 
-
     }
 
     private void checkAnswer() {
@@ -308,7 +311,7 @@ public class NewQuizFragment extends Fragment {
             mBinding.textViewQuestionCount.setText("Question: " + mQuestionCounter + "/" + mQuestionCountTotal);
             mRealQuestionCounter = mQuestionCounter;
 
-            if(mQuestionCounter>1)
+            if (mQuestionCounter > 1)
                 mBinding.buttonConfirmBack.setClickable(true);
 
             mAnswered = false;
@@ -342,6 +345,8 @@ public class NewQuizFragment extends Fragment {
 //            }
 //
 //            highScoreDialog.dismiss();
+
+            //restart fragment
         });
         btnCancel.setOnClickListener(view -> {
             prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
