@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.CountDownTimer;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +66,8 @@ public class NewQuizFragment extends Fragment {
     private int mQuestionCountTotal;
     private int mQuestionCounter = 0;
     private int mRealQuestionCounter = 0;
+//    private int mThirdCounter = 0;
+
     private Result mCurrentQuestion;
     private boolean mAnswered;
     private boolean mBackPressed = false;
@@ -149,6 +153,8 @@ public class NewQuizFragment extends Fragment {
 
         mBinding.buttonConfirmBack.setOnClickListener(v -> {
             Log.d("ABC", mQuestionCounter + " vs " + mRealQuestionCounter);
+
+
             if (mQuestionCounter > 1) {
                 mBackPressed = true;
                 showPreviousQuestion();
@@ -339,14 +345,15 @@ public class NewQuizFragment extends Fragment {
         TextView tvScore = promptView.findViewById(R.id.edtEmail);
         tvScore.setText("Your score is: " + mScore);
         btnPlayAgain.setOnClickListener(view -> {
-//            for(Meal meal:mAddedMeals){
-//                meal.setIsAdded(false);
-//                mMealViewModel.updateMeal(meal);
-//            }
-//
-//            highScoreDialog.dismiss();
+
+            //dismiss dialog
+            highScoreDialog.dismiss();
 
             //restart fragment
+            getActivity().getSupportFragmentManager().popBackStack();
+            new Handler(Looper.myLooper()).postDelayed(() -> StartQuizFragment.startQuiz(),100);
+
+
         });
         btnCancel.setOnClickListener(view -> {
             prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);

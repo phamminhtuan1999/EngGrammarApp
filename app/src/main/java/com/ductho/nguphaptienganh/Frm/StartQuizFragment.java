@@ -1,10 +1,13 @@
 package com.ductho.nguphaptienganh.Frm;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +26,7 @@ public class StartQuizFragment extends Fragment {
     public static final String KEY_HIGHSCORE = "keyHighscore";
     static SharedPreferences prefs;
     static int highscore;
+    public static FragmentActivity mContext;
     QuestionViewModel questionViewModel;
     static FragmentStartQuizBinding mBinding;
 
@@ -39,6 +43,8 @@ public class StartQuizFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mContext = getActivity();
+
         prefs = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         loadHighscore();
         mBinding.buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
@@ -49,11 +55,11 @@ public class StartQuizFragment extends Fragment {
         });
     }
 
-    private void startQuiz() {
+    public static void startQuiz() {
         MainActivity.mBubbleNavigationLinearView.setVisibility(View.GONE);
         MainActivity.mToolbar.setVisibility(View.GONE);
         NewQuizFragment newQuizFragment = new NewQuizFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
+        mContext.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.llMain,newQuizFragment)
         .addToBackStack(null)
         .commit();
