@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="XXX mới"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:fontFamily="@font/utm_avo_bold"
         android:textColor="@color/colorPrimary"
         android:layout_marginStart="20dp"
@@ -28,10 +28,54 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/colorPrimary"/>
 
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_marginTop="20dp"
+        android:id="@+id/ivAvatar"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/btnTakePicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_stroke"
+        android:fontFamily="@font/utm_avo"
+        android:includeFontPadding="false"
+        android:padding="10dp"
+        android:text="Chụp hình mới"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnPickPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_stroke"
+        android:fontFamily="@font/utm_avo"
+        android:includeFontPadding="false"
+        android:padding="10dp"
+        android:text="Chọn hình trong thư viện"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:background="@drawable/button_stroke"
         android:fontFamily="@font/utm_avo"
         android:includeFontPadding="false"
@@ -39,8 +83,6 @@
         android:text="Cập nhật"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_horizontal"/>
+        android:textSize="15sp" />
 
 </LinearLayout>

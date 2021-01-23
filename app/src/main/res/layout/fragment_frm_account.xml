@@ -12,11 +12,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/utm_avo_bold"
         android:text="Tài khoản"
         android:textColor="@color/colorPrimary"
-        android:textSize="25sp" />
+        android:textSize="20sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivBigAvatar"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="10dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,10 +40,13 @@
 
             <ImageView
                 android:id="@+id/ivName"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_account"
                 android:tint="@color/colorPrimary" />
 
@@ -48,7 +59,7 @@
                 android:layout_toRightOf="@id/ivName"
                 android:text="Đổi tên"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -75,10 +86,13 @@
 
             <ImageView
                 android:id="@+id/ivAvatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_account"
                 android:tint="@color/colorPrimary" />
 
@@ -91,7 +105,7 @@
                 android:layout_toRightOf="@id/ivAvatar"
                 android:text="Đổi hình đại diện"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -118,10 +132,13 @@
 
             <ImageView
                 android:id="@+id/ivEmail"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_account"
                 android:tint="@color/colorPrimary" />
 
@@ -134,7 +151,7 @@
                 android:layout_toRightOf="@id/ivEmail"
                 android:text="Đổi email"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -161,10 +178,13 @@
 
             <ImageView
                 android:id="@+id/ivDarkTheme"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_moon" />
 
             <TextView
@@ -176,7 +196,7 @@
                 android:layout_toRightOf="@id/ivDarkTheme"
                 android:text="Đổi mật khẩu"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -188,11 +208,12 @@
                 android:src="@drawable/img_right_arrow" />
         </RelativeLayout>
     </LinearLayout>
+
     <Button
-        android:layout_gravity="center_horizontal"
         android:id="@+id/btn_sign_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/button_stroke"
         android:fontFamily="@font/utm_avo_regular"
         android:includeFontPadding="false"
@@ -200,5 +221,5 @@
         android:text="Đăng xuất"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"/>
+        android:textSize="15sp" />
 </LinearLayout>

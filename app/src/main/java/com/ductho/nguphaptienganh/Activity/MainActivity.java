@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
@@ -42,7 +43,10 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-    public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static Switch switchDarkMode;
     ViewPager pager;
     //    TabLayout tabLayout;
@@ -216,7 +220,6 @@ import java.util.List;
 //                            System.exit(0);
 //                        }
 //                    }).setNegativeButton("Không", null).show();
-
 
     @Override
     public void onClick(View v) {

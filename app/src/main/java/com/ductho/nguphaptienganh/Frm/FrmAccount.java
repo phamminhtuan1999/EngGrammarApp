@@ -1,5 +1,9 @@
 package com.ductho.nguphaptienganh.Frm;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,6 +17,10 @@ import android.view.ViewGroup;
 import com.ductho.nguphaptienganh.Activity.MainActivity;
 import com.ductho.nguphaptienganh.R;
 import com.ductho.nguphaptienganh.databinding.FragmentFrmAccountBinding;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 
 public class FrmAccount extends Fragment {
@@ -41,6 +49,8 @@ public class FrmAccount extends Fragment {
                     break;
             }
             bundle.putString(KEY_TITLE,title);
+            MainActivity.mBubbleNavigationLinearView.setVisibility(View.GONE);
+            MainActivity.mToolbar.setVisibility(View.GONE);
             FrmChangeInfo frmChangeInfo = new FrmChangeInfo();
             frmChangeInfo.setArguments(bundle);
             getActivity().getSupportFragmentManager().beginTransaction()
@@ -53,13 +63,39 @@ public class FrmAccount extends Fragment {
         mBinding.rlName.setOnClickListener(mOnClickListener);
         mBinding.rlEmail.setOnClickListener(mOnClickListener);
         mBinding.rlPassword.setOnClickListener(mOnClickListener);
-        mBinding.rlAvatar.setOnClickListener(mOnClickListener);
+        mBinding.rlAvatar.setOnClickListener(view ->{
+            FragmentBottomSheet fragmentBottomSheet = new FragmentBottomSheet();
+            fragmentBottomSheet.show(getActivity().getSupportFragmentManager(),null);
+            fragmentBottomSheet.setOnImageChosenListener(new FragmentBottomSheet.onImageChosenListener() {
+                @Override
+                public void onCameraImageChosen(Intent data) {
+                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
+                    mBinding.ivBigAvatar.setImageBitmap(bitmap);
+                    fragmentBottomSheet.dismiss();
+                }
+
+                @Override
+                public void onGalleryImageChosen(Uri uri) {
+                    try {
+                        InputStream inputStream = getActivity().getContentResolver().openInputStream(uri);
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        mBinding.ivBigAvatar.setImageBitmap(bitmap);
+                        fragmentBottomSheet.dismiss();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        });
+
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         MainActivity.mBubbleNavigationLinearView.setVisibility(View.VISIBLE);
+        MainActivity.mToolbar.setVisibility(View.VISIBLE);
     }
 
 
@@ -70,6 +106,7 @@ public class FrmAccount extends Fragment {
         mBinding = FragmentFrmAccountBinding.inflate(inflater,container,false);
         return mBinding.getRoot();
     }
+
 
 
 }

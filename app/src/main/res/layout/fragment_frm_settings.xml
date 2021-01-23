@@ -22,10 +22,13 @@
 
             <ImageView
                 android:id="@+id/ivEmail"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_account"
                 android:tint="@color/colorPrimary" />
 
@@ -38,7 +41,7 @@
                 android:layout_toRightOf="@id/ivEmail"
                 android:text="Cài đặt tài khoản"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -64,10 +67,13 @@
 
             <ImageView
                 android:id="@+id/ivDarkTheme"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ic_moon" />
 
             <TextView
@@ -79,7 +85,7 @@
                 android:layout_toRightOf="@id/ivDarkTheme"
                 android:text="Dark theme"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.SwitchCompat

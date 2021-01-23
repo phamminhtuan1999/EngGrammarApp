@@ -253,6 +253,8 @@ public class LoginActivity extends AppCompatActivity {
 //                });
 //    }
 
+
+
     public void onBackPressed() {
         new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Thoát ứng dụng")
                 .setMessage("Bạn chắc chắn muốn thoát ứng dụng?")

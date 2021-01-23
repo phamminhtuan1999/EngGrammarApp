@@ -30,6 +30,7 @@ public class FrmSettings extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mBinding.rlAccount.setOnClickListener(v -> {
             MainActivity.mBubbleNavigationLinearView.setVisibility(View.GONE);
+            MainActivity.mToolbar.setVisibility(View.GONE);
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.llMain,new FrmAccount())
                     .addToBackStack(null)
